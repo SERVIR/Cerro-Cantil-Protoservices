@@ -1,0 +1,46 @@
+/* styles for base template page */
+#wrapper {
+    min-height: calc(100vh - 50px);
+}
+
+#footer {
+    background-color: #0c1a4e;
+    height: 50px;
+    position: relative;
+}
+
+.app-copy {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+.app-copy a {
+    color: #ffffff;
+}
+
+.app-copy a:hover {
+    text-decoration: none;
+}
+
+.app-power {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+.btn-data-info{
+    border: 1px solid #fcc219;
+    background-color: #ffffff99;
+    color: #0c1a4e;
+}
+
+.btn-data-info:hover{
+    border: 1px solid #fcc219;
+    background-color: #0c1a4e;
+    color: #fcc219;
+}

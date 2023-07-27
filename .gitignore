@@ -1,0 +1,6 @@
+*.com.json
+data.json
+db.sqlite
+.idea
+.jshintrc
+*.pyc

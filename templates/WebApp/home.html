@@ -1,0 +1,140 @@
+{% extends "WebApp/app_base.html" %}
+{% load static %}
+
+{% block title %}Cerro Cantil Protoservices - Home{% endblock %}
+{% block script %}
+    <!-- Custom styles-->
+
+    <!-- Custom scripts-->
+{% endblock %}
+
+<!-- Begin Page Content -->
+{% block content %}
+    <div class="align-items-center justify-content-between bg-gray-300">
+        <div style="position: relative;">
+            <!-- Hero image in the home page -->
+            <!-- If there an image that represents the tool/organization, please update the src in the <img> below -->
+            <div>
+                <img
+                        class="img-fluid hero_style"
+                        src="{% static '/images/trees-down2.png' %}"
+                        alt="Hero Image"
+                >
+                <div class="layer">
+                </div>
+                <div class="card-img-overlay ">
+                    <div class="text-center text-white vertical_center">
+                        <!-- Title on the hero image-->
+                        <p id="title_class">
+                            Cerro Cantil Protoservices
+                        </p>
+                        <!-- Tagline under the title on the hero image-->
+                        <p id="tagline_class">
+                            We need a short tag-line summary of what problem this application addresses,
+                            and what we intend it to do.  It should just be a few sentences or so. </p>
+                        <p>
+                            <button onclick="window.location ='{% url 'map' %}'" class="btn btn-lg btn-data-info hero-subtitle" style="text-transform: unset;">Get started</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search bar -->
+        <!-- Search results are based on the title on the cards shown -->
+        <div class="container-fluid">
+
+
+                <!-- Description of the website -->
+                <!-- The description can be updated in the <p> tags below -->
+                <div class="row">`
+                    <div class="col-lg-12 mb-4">
+                        <br>
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Description</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                </div>
+                                <p>A more in-depth detailed description of the application. this could be multiple paragraphs
+                                and even include images, links, and graphs as needed.  This is all subject to what y'all want and how you
+                                    want it displayed.  You can add background information, research information, publication information,
+                                    or basically anything you think would be useful to the users of the application.
+                                </p>
+                                <p>This application is created and maintained by the SERVIR Science Coordination
+                                    office.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <br>
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Placeholder</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                </div>
+                                <p>This web application shows typical implementations of common user interface
+                                    requirements
+                                    in geospatial information delivery. You can customize this template according to
+                                    your specific application workflow, combining different functions, such as
+                                    displayign
+                                    maps and charts in the same page, or eliminating unnecesary functions.</p>
+                                <p>This template app is created and maintanined by the SERVIR Science Coordination
+                                    office.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <br>
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Placeholder</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                </div>
+                                <p>This web application shows typical implementations of common user interface
+                                    requirements
+                                    in geospatial information delivery. You can customize this template according to
+                                    your specific application workflow, combining different functions, such as
+                                    displayign
+                                    maps and charts in the same page, or eliminating unnecesary functions.</p>
+                                <p>This template app is created and maintanined by the SERVIR Science Coordination
+                                    office.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <br>
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Placeholder</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                </div>
+                                <p>This web application shows typical implementations of common user interface
+                                    requirements
+                                    in geospatial information delivery. You can customize this template according to
+                                    your specific application workflow, combining different functions, such as
+                                    displayign
+                                    maps and charts in the same page, or eliminating unnecesary functions.</p>
+                                <p>This template app is created and maintanined by the SERVIR Science Coordination
+                                    office.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+        </div>
+    </div>
+    <!-- End of Main Content -->
+
+    <script src="{% static '/js/home.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% include 'WebApp/home_about.html' %}
+{% endblock %}
