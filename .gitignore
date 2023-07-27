@@ -4,3 +4,4 @@ db.sqlite
 .idea
 .jshintrc
 *.pyc
+staticfiles/
