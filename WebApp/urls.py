@@ -35,6 +35,7 @@ urlpatterns = [
     path('map_from_gee/get-gee-layer/', api_handlers.get_gee_layer, name='get-gee-layer'),
     path('map_from_gee/get-gee-user-layer/', api_handlers.get_gee_user_layer, name='get-gee-user-layer'),
     path('map_chart/get-measurements/', api_handlers.get_measurements, name='get-measurements'),
+    path('get_cam_areas/', api_handlers.get_cam_areas, name='get_cam_areas'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

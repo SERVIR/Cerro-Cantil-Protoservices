@@ -24,6 +24,14 @@ f = open(str(BASE_DIR) + '/data.json', )  # Get the data from the data.json file
 data = json.load(f)
 
 
+@csrf_exempt
+def get_cam_areas(request):
+    print(str(os.path.join(Path(__file__).resolve().parent, 'data', 'cam_areas2.json')))
+    #path = int(Path(__file__).resolve().parent)
+    with open(os.path.join(Path(__file__).resolve().parent, 'data', 'cam_areas2.json'), 'r') as f:
+        json_obj = json.load(f)
+    return JsonResponse(json_obj)
+
 # Get the time series data from the netCDF file
 @csrf_exempt
 def get_timeseries_netcdf(request):
