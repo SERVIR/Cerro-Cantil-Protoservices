@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from WebApp.models import Station, Measurement, Organization
+from WebApp.models import *
 
 # Register the models to the admin site
 
@@ -38,3 +38,4 @@ class OrganizationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 
 admin.site.register(Organization, OrganizationAdmin)  # register the Organization model to the admin site
+admin.site.register(WMSLayer)

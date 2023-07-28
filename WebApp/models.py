@@ -41,3 +41,11 @@ class Measurement(models.Model):
 
     def __str__(self):
         return self.station.station_id + "-" + self.station.station_name + "-" + str(self.measurement_date)
+
+
+class WMSLayer(models.Model):
+    title = models.CharField(max_length=200, help_text='Enter a title which will display in the layer list on the map '
+                                                       'application')
+    url = models.TextField(help_text="Enter url to the WMS service")
+    attribution = models.TextField(help_text="Enter data attribution to display in map UI")
+    layers = models.CharField(max_length=200, help_text='Enter layer names from the WMS to display')
