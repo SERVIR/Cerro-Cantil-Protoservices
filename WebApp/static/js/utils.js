@@ -40,3 +40,13 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function logoswap(e){
+    const img = document.querySelector("#logo_img");
+    if(e){
+        img.src = static_url + 'images/cerro_cantil_logo_transparent_hover.png';
+    } else{
+        img.src = static_url + 'images/cerro_cantil_logo_transparent.png';
+    }
+
+}
+
