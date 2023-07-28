@@ -26,11 +26,10 @@ data = json.load(f)
 
 @csrf_exempt
 def get_cam_areas(request):
-    print(str(os.path.join(Path(__file__).resolve().parent, 'data', 'cam_areas2.json')))
-    #path = int(Path(__file__).resolve().parent)
     with open(os.path.join(Path(__file__).resolve().parent, 'data', 'cam_areas2.json'), 'r') as f:
         json_obj = json.load(f)
     return JsonResponse(json_obj)
+
 
 # Get the time series data from the netCDF file
 @csrf_exempt
@@ -140,9 +139,10 @@ def get_timeseries_sqlite(request):
         print(station)
         print(enddate)
         if station != "default":
-            measurement_rows = Measurement.objects.all().filter(measurement_date__range=[startdate,enddate]).filter(station__station_name=station).only("measurement_date",
-                                                                                   "measurement_temp",
-                                                                                   "measurement_precip")[:10]
+            measurement_rows = Measurement.objects.all().filter(measurement_date__range=[startdate, enddate]).filter(
+                station__station_name=station).only("measurement_date",
+                                                    "measurement_temp",
+                                                    "measurement_precip")[:10]
             print(measurement_rows)
             for row in measurement_rows:
                 print(row)
@@ -199,18 +199,20 @@ def stations(request):
 
 
 def get_measurements(request):
-    obj = Measurement.objects.all().filter(measurement_date__range=[request.POST["startdate"],request.POST["enddate"]]).filter(station__station_name=request.POST["station"]).values("station__station_name",
-                                                                                         "measurement_date","measurement_precip",
-                                                                                         "measurement_temp")
+    obj = Measurement.objects.all().filter(
+        measurement_date__range=[request.POST["startdate"], request.POST["enddate"]]).filter(
+        station__station_name=request.POST["station"]).values("station__station_name",
+                                                              "measurement_date", "measurement_precip",
+                                                              "measurement_temp")
     json_obj = {}
     resullt = []
     print(obj)
     for r in obj:
         temp = r["measurement_temp"]
-        date=r["measurement_date"]
+        date = r["measurement_date"]
         precip = r["measurement_precip"]
         station = r["station__station_name"]
-        resullt.append({"station": station, "date":date,"temp": temp, "precip": precip})
+        resullt.append({"station": station, "date": date, "temp": temp, "precip": precip})
     print(resullt)
     json_obj["data"] = resullt
     return JsonResponse(json_obj)
