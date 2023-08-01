@@ -75,7 +75,7 @@
 }
 
 .accordion-body {
-    max-height: 35vh;
+    /*max-height: 100vh;*/
     padding: 0;
 }
 

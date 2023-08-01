@@ -2,7 +2,7 @@
 .sidenav {
     height: calc(100vh - 186px);
     padding: 0px;
-    width: 0;
+    width: 350px;
     position: fixed;
     z-index: 100;
     left: 0;
@@ -18,6 +18,14 @@
     color: #818181;
     display: block;
     transition: 0.3s;
+}
+
+.layers{
+    padding-left: 0!important;
+}
+
+span.rst__rowTitle {
+    padding-left: 1em;
 }
 
 .close-panel {
@@ -52,6 +60,75 @@
     width: 50px;
 }
 
+.rst__rowWrapper {
+    padding: 0 10px 0 0;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.rst__rowLabel{
+    width: 100%;
+}
+
+.fire_counter{
+    width: 100%;
+    text-align: end;
+    padding-right: 5px;
+}
+
+.cblabel{
+    max-width: calc(100% - 16px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.rst__row {
+    height: 100%;
+    white-space: nowrap;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.rst__moveHandle,
+.rst__loadingHandle {
+
+    height: auto;
+    width: 44px;
+    /*background: #7eaddb url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MiIgaGVpZ2h0PSI0MiI+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIuOSI+PHBhdGggZD0iTTE0IDE1LjdoMTQuNE0xNCAyMS40aDE0LjRNMTQgMjcuMWgxNC40Ii8+PC9nPjwvc3ZnPg==) no-repeat 50%;*/
+    background: #fcc219 url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MiIgaGVpZ2h0PSI0MiI+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIuOSI+PHBhdGggZD0iTTE0IDE1LjdoMTQuNE0xNCAyMS40aDE0LjRNMTQgMjcuMWgxNC40Ii8+PC9nPjwvc3ZnPg==) no-repeat 50%;
+    border: solid #0c1a4e 1px;
+    -webkit-box-shadow: #0c1a4e 2px 2px 4px 0px;
+    box-shadow: #0c1a4e 2px 2px 4px 0px;
+    cursor: move;
+    border-radius: 1px;
+    z-index: 1;
+}
+
+.rst__rowContents {
+    position: relative;
+    height: 100%;
+    border: 0; /* 1px solid #bbb;*/
+    border-left: none;
+    -webkit-box-shadow: #0c1a4e 0px 2px 4px 0px;;
+    box-shadow: #0c1a4e 0px 2px 4px 0px;;
+    padding: 0 5px 0 10px;
+    border-radius: 2px;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: #fff;
+    max-width: calc(100% - 44px);
+}
+
 .map_control_style {
     display: flex;
     align-items: center;
@@ -65,7 +142,7 @@
 }
 
 .side_panel {
-    padding-left: 30px;
+    /*padding-left: 30px;*/
     margin-top: 15px;
     margin-bottom: 10px;
 }

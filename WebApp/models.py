@@ -49,3 +49,7 @@ class WMSLayer(models.Model):
     url = models.TextField(help_text="Enter url to the WMS service")
     attribution = models.TextField(help_text="Enter data attribution to display in map UI")
     layers = models.CharField(max_length=200, help_text='Enter layer names from the WMS to display')
+    wfs_layer_types = models.CharField(max_length=200, help_text='WFS LayerType(s).  If there are two comma separate', default="")
+
+    def __str__(self):
+        return self.title
