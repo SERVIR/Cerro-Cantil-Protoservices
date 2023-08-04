@@ -3,6 +3,14 @@
     min-height: calc(100vh - 50px);
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: #fcc219;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
 #footer {
     background-color: #162518;
     height: 50px;
@@ -18,11 +26,12 @@
 }
 
 .app-copy a {
-    color: #ffffff;
+    color: #fcc219;
 }
 
 .app-copy a:hover {
     text-decoration: none;
+    color:#ffffff;
 }
 
 .app-power {
@@ -36,11 +45,11 @@
 .btn-data-info{
     border: 1px solid #fcc219;
     background-color: #ffffff99;
-    color: #0c1a4e;
+    color: #162518;
 }
 
 .btn-data-info:hover{
     border: 1px solid #fcc219;
-    background-color: #0c1a4e;
+    background-color: #162518;
     color: #fcc219;
 }
