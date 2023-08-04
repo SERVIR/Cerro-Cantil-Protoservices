@@ -94,6 +94,10 @@ span.rst__rowTitle {
     -moz-user-select: none;
 }
 
+.sortable-ghost {
+    opacity: .75;
+}
+
 .rst__row {
     height: 100%;
     white-space: nowrap;

@@ -58,7 +58,7 @@
                 layers: "{{ layer.layers }}"
             });
         {% endfor %}
-    const planet_id = '{{ planet_id }}';
+        const planet_id = '{{ planet_id }}';
     </script>
 
 {% endblock %}
@@ -97,35 +97,35 @@
                              aria-labelledby="headingOne" data-bs-parent="#full_tab_container">
                             <div class="accordion-body">
                                 <div class="side_panel">
-{#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="cerro_cantil"#}
-{#                                                                            type="checkbox" checked/>#}
-{#                                        <label class="form-check-label w-75" for="cerro_cantil">Cerro Cantil</label>#}
-{#                                        <a class="float-right" role="button" href=#"#}
-{#                                           data-bs-toggle="popover"#}
-{#                                           data-bs-trigger="focus" title="Cerro Cantil"#}
-{#                                           data-bs-content="Outline of the Cerro Cantil protected area"><i#}
-{#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-{#                                    </div>#}
+                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="cerro_cantil"#}
+                                    {#                                                                            type="checkbox" checked/>#}
+                                    {#                                        <label class="form-check-label w-75" for="cerro_cantil">Cerro Cantil</label>#}
+                                    {#                                        <a class="float-right" role="button" href=#"#}
+                                    {#                                           data-bs-toggle="popover"#}
+                                    {#                                           data-bs-trigger="focus" title="Cerro Cantil"#}
+                                    {#                                           data-bs-content="Outline of the Cerro Cantil protected area"><i#}
+                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
+                                    {#                                    </div>#}
 
-{#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="santa_maria"#}
-{#                                                                            type="checkbox" checked/>#}
-{#                                        <label class="form-check-label w-75" for="santa_maria">Santa Maria Tzeja</label>#}
-{#                                        <a class="float-right" role="button" href=#"#}
-{#                                           data-bs-toggle="popover"#}
-{#                                           data-bs-trigger="focus" title="Santa Maria Tzeja"#}
-{#                                           data-bs-content="Outline of the Santa Maria Tzeja village in Guatemala"><i#}
-{#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-{#                                    </div>#}
+                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="santa_maria"#}
+                                    {#                                                                            type="checkbox" checked/>#}
+                                    {#                                        <label class="form-check-label w-75" for="santa_maria">Santa Maria Tzeja</label>#}
+                                    {#                                        <a class="float-right" role="button" href=#"#}
+                                    {#                                           data-bs-toggle="popover"#}
+                                    {#                                           data-bs-trigger="focus" title="Santa Maria Tzeja"#}
+                                    {#                                           data-bs-content="Outline of the Santa Maria Tzeja village in Guatemala"><i#}
+                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
+                                    {#                                    </div>#}
 
-{#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="cam_areas"#}
-{#                                                                            type="checkbox" checked disabled/>#}
-{#                                        <label class="form-check-label w-75" for="cam_areas">cam_areas</label>#}
-{#                                        <a class="float-right" role="button" href=#"#}
-{#                                           data-bs-toggle="popover"#}
-{#                                           data-bs-trigger="focus" title="cam areas"#}
-{#                                           data-bs-content="cam areas"><i#}
-{#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-{#                                    </div>#}
+                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="cam_areas"#}
+                                    {#                                                                            type="checkbox" checked disabled/>#}
+                                    {#                                        <label class="form-check-label w-75" for="cam_areas">cam_areas</label>#}
+                                    {#                                        <a class="float-right" role="button" href=#"#}
+                                    {#                                           data-bs-toggle="popover"#}
+                                    {#                                           data-bs-trigger="focus" title="cam areas"#}
+                                    {#                                           data-bs-content="cam areas"><i#}
+                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
+                                    {#                                    </div>#}
 
 
                                     <ol class="layers vertical w-100" id="layer-list">
@@ -281,7 +281,7 @@
                                             <div class="rst__nodeContent" style="left: 44px">
                                                 <div style="height: 100%">
                                                     <div class="rst__rowWrapper">
-                                                        <div class="rst__row" style="opacity: 1" draggable="true">
+                                                        <div class="rst__row" style="opacity: 1" >
                                                             <div class="rst__moveHandle"></div>
                                                             <div class="rst__rowContents ignore-elements">
                                                                 <div class="rst__rowLabel">
@@ -329,7 +329,7 @@
                                                 <div class="rst__nodeContent" style="left: 44px">
                                                     <div style="height: 100%">
                                                         <div class="rst__rowWrapper">
-                                                            <div class="rst__row" style="opacity: 1" draggable="true">
+                                                            <div class="rst__row" style="opacity: 1" >
                                                                 <div class="rst__moveHandle"></div>
                                                                 <div class="rst__rowContents ignore-elements">
                                                                     <div class="rst__rowLabel">
@@ -360,7 +360,8 @@
 
                                                                             </i>
                                                                             <p class="fire_counter">
-                                                                            <span id="{{ layer.id }}_count">0</span> <span>hotspots</span>
+                                                                                <span id="{{ layer.id }}_count">0</span>
+                                                                                <span>hotspots</span>
                                                                             </p>
                                                                         </div>
 
@@ -375,14 +376,15 @@
                                             </li>
                                             <script>
                                                 $(function () {
-                                                    function _{{ layer.id }}_countUpdater(){
+                                                    function _{{ layer.id }}_countUpdater() {
                                                         map.on('moveend', function (e) {
                                                             getFireCount('{{ layer.wfs_layer_types }}', '{{ layer.id }}_count');
                                                         });
                                                     }
-                                                    if(map){
+
+                                                    if (map) {
                                                         _{{ layer.id }}_countUpdater();
-                                                    }else {
+                                                    } else {
                                                         console.log("setting");
                                                         setTimeout(_{{ layer.id }}_countUpdater, 250);
                                                     }
@@ -396,39 +398,40 @@
                                             <div class="rst__nodeContent" style="left: 44px">
                                                 <div style="height: 100%">
                                                     <div class="rst__rowWrapper">
-                                                        <div class="rst__row" style="opacity: 1" draggable="true">
-                                                            <div class="rst__moveHandle"></div>
-                                                            <div class="rst__rowContents ignore-elements">
-                                                                <div class="rst__rowLabel">
+                                                        <div class="rst__row" style="opacity: 1">
+                                                            <div class="rst__moveHandle" ></div>
+                                                            <div class="rst__rowContents ignore-elements opacity-control">
+                                                                <div class="rst__rowLabel opacity-control">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="Planet tiles"
                                                                           data-toggle="tooltip"
                                                                   >
-                                      <input type="checkbox"
-                                             id="planet"
-                                             name="planet"
-                                             checked
-                                             class="form-check-input"
-                                      />
-                                      <label for="planet"
-                                             class="cblabel">Planet tiles</label>
-                                      <br/>
-                                  </span>
-                                                                    <div>
+                                                                      <input type="checkbox"
+                                                                             id="planet"
+                                                                             name="planet"
+                                                                             checked
+                                                                             class="form-check-input"
+                                                                      />
+                                                                      <label for="planet"
+                                                                             class="cblabel">Planet tiles</label>
+                                                                      <br/>
+                                                                  </span>
+                                                                    <div class="opacity-control">
                                                                         <input id="opacity_planet"
                                                                                type="range"
                                                                                max="1"
                                                                                min="0"
+                                                                               value="1"
                                                                                step="0.01"
-                                                                               style="display: block"
+                                                                               style="display: block;width:100%;"
+                                                                               class="opacity-control"
                                                                         /><label class="ml-1" for="opacity_planet"
                                                                                  id="planet_opacity"></label>
                                                                     </div>
 
 
                                                                 </div>
-                                                                <div class="rst__rowToolbar"></div>
                                                             </div>
                                                         </div>
                                                     </div>
