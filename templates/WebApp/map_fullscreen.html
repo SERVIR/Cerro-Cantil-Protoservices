@@ -58,6 +58,7 @@
                 layers: "{{ layer.layers }}"
             });
         {% endfor %}
+    const planet_id = '{{ planet_id }}';
     </script>
 
 {% endblock %}
@@ -341,7 +342,6 @@
                                              id="wms_{{ layer.id }}"
                                              name="wms_{{ layer.id }}"
                                              class="form-check-input"
-                                             checked
                                              onchange="toggle_layer(this.checked, '{{ layer.id }}_layer')"/>
                                       <label for="wms_{{ layer.id }}"
                                              class="cblabel">{{ layer.title }}</label>
@@ -391,6 +391,50 @@
                                                 {#getFireCount("ms:fires_modis_7days");#}
                                             </script>
                                         {% endfor %}
+                                        <li id="planet_node"
+                                            style="display: block; max-width: 100%; ">
+                                            <div class="rst__nodeContent" style="left: 44px">
+                                                <div style="height: 100%">
+                                                    <div class="rst__rowWrapper">
+                                                        <div class="rst__row" style="opacity: 1" draggable="true">
+                                                            <div class="rst__moveHandle"></div>
+                                                            <div class="rst__rowContents ignore-elements">
+                                                                <div class="rst__rowLabel">
+                                                                  <span
+                                                                          class="rst__rowTitle"
+                                                                          title="Planet tiles"
+                                                                          data-toggle="tooltip"
+                                                                  >
+                                      <input type="checkbox"
+                                             id="planet"
+                                             name="planet"
+                                             checked
+                                             class="form-check-input"
+                                      />
+                                      <label for="planet"
+                                             class="cblabel">Planet tiles</label>
+                                      <br/>
+                                  </span>
+                                                                    <div>
+                                                                        <input id="opacity_planet"
+                                                                               type="range"
+                                                                               max="1"
+                                                                               min="0"
+                                                                               step="0.01"
+                                                                               style="display: block"
+                                                                        /><label class="ml-1" for="opacity_planet"
+                                                                                 id="planet_opacity"></label>
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div class="rst__rowToolbar"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ol>
 
                                     {#                                    {% for layer in wms_layers %}#}

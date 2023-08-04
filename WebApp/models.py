@@ -53,3 +53,11 @@ class WMSLayer(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class PlanetTile(models.Model):
+    image_date = models.DateField(help_text="Image Date")
+    layer_id = models.TextField(help_text="Planet LayerID for the url template")
+
+    def __str__(self):
+        return str(self.image_date)

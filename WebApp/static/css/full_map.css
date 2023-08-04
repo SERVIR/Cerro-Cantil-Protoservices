@@ -83,6 +83,17 @@ span.rst__rowTitle {
     overflow: hidden;
 }
 
+.disable-selection {
+    /* event if these are not necessary, let's just add them */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* this will add drag availability once you clicked the
+       #drag div while you're focusing #message div */
+    -moz-user-select: none;
+}
+
 .rst__row {
     height: 100%;
     white-space: nowrap;
@@ -99,7 +110,7 @@ span.rst__rowTitle {
     height: auto;
     width: 44px;
     /*background: #7eaddb url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MiIgaGVpZ2h0PSI0MiI+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIuOSI+PHBhdGggZD0iTTE0IDE1LjdoMTQuNE0xNCAyMS40aDE0LjRNMTQgMjcuMWgxNC40Ii8+PC9nPjwvc3ZnPg==) no-repeat 50%;*/
-    background: #fcc219 url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MiIgaGVpZ2h0PSI0MiI+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIuOSI+PHBhdGggZD0iTTE0IDE1LjdoMTQuNE0xNCAyMS40aDE0LjRNMTQgMjcuMWgxNC40Ii8+PC9nPjwvc3ZnPg==) no-repeat 50%;
+    background: #162518 url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MiIgaGVpZ2h0PSI0MiI+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIuOSI+PHBhdGggZD0iTTE0IDE1LjdoMTQuNE0xNCAyMS40aDE0LjRNMTQgMjcuMWgxNC40Ii8+PC9nPjwvc3ZnPg==) no-repeat 50%;
     border: solid #0c1a4e 1px;
     -webkit-box-shadow: #0c1a4e 2px 2px 4px 0px;
     box-shadow: #0c1a4e 2px 2px 4px 0px;

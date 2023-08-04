@@ -1,6 +1,6 @@
 *.com.json
 data.json
-db.sqlite
+db.sqlite3
 .idea
 .jshintrc
 *.pyc

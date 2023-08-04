@@ -4,7 +4,7 @@
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus{
-    color: #fcc219;
+    color: #162518;
 }
 
 .app-copy a:hover {
@@ -119,7 +119,7 @@ label {
 }
 
 #navbar_app_base {
-    background-color: #0c1a4e;
+    background-color: #162518;
 }
 .navbar-expand-lg .navbar-collapse{
     flex-grow: unset;

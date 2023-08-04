@@ -91,7 +91,7 @@ def quality(feature):
         return (1 - properties['cloud_cover']) * 50
 
 
-def search(item_types, filters, sort=False):
+def search(item_types, filters, sort=False, stats=False):
     and_filter = {
         'type': 'AndFilter',
         'config': filters
@@ -101,12 +101,14 @@ def search(item_types, filters, sort=False):
         'filter': and_filter
     }
 
-    def next_page(res_json):
+    def first_page(res_json):
+        print("in first page")
         page_features = res_json.get('features')
         links = res_json.get('_links')
-        if links and links['_next']:
-            next_url = links['_next']
-            page_res = requests.get(next_url, auth=(PLANET_API_KEY, ''))
+        if links and links['_first']:
+            first_url = links['_first']
+            print(first_url)
+            page_res = requests.get(first_url, auth=(PLANET_API_KEY, ''))
             if page_res.status_code >= 400:
                 raise ValueError('Error searching Planet. HTTP {}: {}'.format(page_res.status_code, page_res.reason))
             next_features = next_page(page_res.json())
@@ -114,14 +116,38 @@ def search(item_types, filters, sort=False):
         else:
             return page_features
 
-    res = session.post('https://api.planet.com/data/v1/quick-search', json=request)
+    def next_page(res_json):
+        print("in next page")
+        page_features = res_json.get('features')
+        links = res_json.get('_links')
+        if links and links['_next']:
+            next_url = links['_next']
+            print(next_url)
+            page_res = requests.get(next_url, auth=(PLANET_API_KEY, ''))
+            if page_res.status_code >= 400:
+                raise ValueError('Error searching Planet. HTTP {}: {}'.format(page_res.status_code, page_res.reason))
+            next_features = next_page(page_res.json())
+            return page_features + next_features
+        else:
+            return page_features
+    if stats:
+        print("stats")
+        request["interval"] = "day"
+        res = session.post('https://api.planet.com/data/v1/stats', json=request)
+        return (res.json())
+    else:
+        print("searching")
+        res = session.post('https://api.planet.com/data/v1/quick-search', json=request)
     if res.status_code >= 400:
         raise ValueError('Error searching Planet. HTTP {}: {}'.format(res.status_code, res.reason))
     # There is unfortunately no ability to request sorted feature, so we have to get them all then sort them ourselves.
     # This means a whole lot of paging for long date-ranges. We might want to limit this...
     # We asked for them to implement the sorting, and they said they will.
     # We also asked for the ability to limit which metadata to return for each feature.
-    features = next_page(res.json())
+
+    # get first page link the do the next page stuff
+    features = first_page(res.json())
+    #features = next_page(res.json())
 
     if sort:
         return list(sorted(features, key=lambda f: quality(f), reverse=True))
@@ -168,7 +194,7 @@ def add_similar_features(feature, buffer, geometry):
 
 
 def get_planet_map_id(api_key, geometry, start, end=None, layer_count=1, item_types=['PSScene'], buffer=0.5,
-                      add_similar=True):
+                      add_similar=True, stats=False):
     full_list = []
     global PLANET_API_KEY
     PLANET_API_KEY = api_key  # Insert your own API key here
@@ -190,14 +216,18 @@ def get_planet_map_id(api_key, geometry, start, end=None, layer_count=1, item_ty
             geometry_filter(geometry),  # .centroid),
             string_filter('quality_category', ['standard'])
         ],
-        sort=True
+        sort=True,
+        stats=stats
     )
+    if stats:
+        return features
     print('getting mapID')
 
     # print(features)
-    best_features = distinct_date(features)[0:layer_count]  # The best n features with distinct date, sorted by quality
+    #best_features = distinct_date(features)[0:layer_count]  # The best n features with distinct date, sorted by quality
+    best_features = features[0:layer_count]
     # return best_features
-
+    print(str(best_features))
     for feature in best_features[::-1]:  # Reverse the sorting and iterate
         if add_similar:
             print('Adding similar')

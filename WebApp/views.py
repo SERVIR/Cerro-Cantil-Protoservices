@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from WebApp.forms import MeasurementForm
 from WebApp.models import Measurement
 from WebApp.models import WMSLayer
+from WebApp.models import PlanetTile
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from WebApp.utils import get_stations
 
@@ -72,7 +73,11 @@ def map_from_gee(request):
 
 def map_full_screen(request):
     wms_layers = WMSLayer.objects.order_by('title').all()
-    return render(request, 'WebApp/map_fullscreen.html', {"wms_layers":wms_layers})
+    planet_tile = PlanetTile.objects.order_by("image_date").first()
+    return render(request, 'WebApp/map_fullscreen.html', {
+        "wms_layers":wms_layers,
+        "planet_id": planet_tile.layer_id
+    })
 
 
 def chart_from_netcdf(request):

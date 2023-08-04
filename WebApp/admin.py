@@ -39,3 +39,4 @@ class OrganizationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 admin.site.register(Organization, OrganizationAdmin)  # register the Organization model to the admin site
 admin.site.register(WMSLayer)
+admin.site.register(PlanetTile)

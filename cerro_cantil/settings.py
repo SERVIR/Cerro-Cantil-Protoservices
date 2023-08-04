@@ -33,6 +33,8 @@ ALLOWED_HOSTS = data['ALLOWED_HOSTS']
 
 CSRF_TRUSTED_ORIGINS = data['CSRF_TRUSTED_ORIGINS']
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'import_export',
+    # 'WebApp.management.commands.update_planet',
 ]
 
 MIDDLEWARE = [
