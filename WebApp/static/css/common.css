@@ -3,6 +3,10 @@
     color: #fcc219;
 }
 
+.app-power img:hover{
+    opacity: .7;
+}
+
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
     color: #fdecc2;
 }
