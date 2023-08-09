@@ -13,6 +13,7 @@ from WebApp.forms import MeasurementForm
 from WebApp.models import Measurement
 from WebApp.models import WMSLayer
 from WebApp.models import PlanetTile
+from WebApp.models import TeamMember
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from WebApp.utils import get_stations
 
@@ -102,7 +103,8 @@ def chart_sqlite(request):
 
 
 def about(request):
-    return render(request, 'WebApp/about.html', {})
+    team_members = TeamMember.objects.exclude(active=False).order_by("display_order").all()
+    return render(request, 'WebApp/about.html', {"team": team_members})
 
 
 @xframe_options_exempt

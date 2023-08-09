@@ -61,3 +61,39 @@ class PlanetTile(models.Model):
 
     def __str__(self):
         return str(self.image_date)
+
+
+class MemberBio(models.Model):
+    title = models.CharField(help_text="Member title", max_length=250)
+    description = models.TextField(help_text="Bio content")
+
+    def __str__(self):
+        return self.title
+
+
+class TeamMember(models.Model):
+    name = models.CharField(help_text="Name of the team member", max_length=250)
+    photo = models.ImageField(upload_to='icons/',
+                              blank=True, null=True,
+                              help_text="Square image, minimum 150px X 150px")
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+    organization = models.ForeignKey('Organization', on_delete=models.CASCADE)
+    active = models.BooleanField(default=True, help_text="Is the developer active?")
+    display_order = models.IntegerField(default=5)
+    bio = models.ForeignKey('MemberBio', on_delete=models.CASCADE)
+
+    @property
+    def image_url(self):
+        if self.photo:
+            return self.photo.url
+        else:
+            return "/static/app/img/no_profile.png"
+
+    def __str__(self):
+        return self.name
+
+
+
+
+

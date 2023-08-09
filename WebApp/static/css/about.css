@@ -1,20 +1,32 @@
 /* styles specific to about page */
 .team-member {
-    height: 150px;
+    height: 165px;
+    width: 165px;
     border-radius: 50%;
+}
+
+.bio-team-member{
+    max-height: calc(100vh - 40vh);
+    max-width: 100%;;
 }
 
 .org-logo {
     height: 100px;
 }
 
+.modal-body {
+    position: relative;
+}
+
 .member-wrap {
-    display: flex;
+    display: block;
 }
 
 .member-image {
     width: unset;
     margin-bottom: 10px;
+    position: relative;
+    text-align: center;
 }
 
 .member-image img {

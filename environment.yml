@@ -16,4 +16,5 @@ dependencies:
   - pip:
       - climateserv==0.0.24
       - shapely-geojson
+      - Pillow
 prefix: C:\ProgramData\Anaconda3\envs\cerro_cantil
