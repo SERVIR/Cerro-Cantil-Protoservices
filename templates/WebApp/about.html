@@ -27,9 +27,17 @@
                             <p>This is a prototype visualization app for the Cerro Cantil protected area in Guatemala. The purpose of the app is to offer central access to several Earth-observation datasets to monitor the health of the protected area.
 
                                 Initially, the application incorporates fire monitoring (from FIRMS), both historical and current, and high-resolution imagery made available under research grants to SERVIR.</p>
+{#                            <h5>#}
+{#                                Status: Active @ SCO#}
+{#                            </h5>#}
                             <h5>
-                                Status: Active @ SCO
+                                Team Members:
                             </h5>
+                            <p>
+                                {% for member in team %}
+                                    {{ member.name}}: {{ member.organization.organization_id }}{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +45,7 @@
         </div>
         <!-- Team member listing -->
         <!-- Change the path in src of <img> tag in order to replace a team member's picture -->
-        <div class="row">
+        <div class="row" style="display: none;">
             <div class="col-lg-12 mb-4">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -50,7 +58,7 @@
                         {% for member in team %}
                             <span onclick="open_more_info(this)"
                             class="p-3 d-inline-block text-decoration-none pointer team-member"
-                            style="background-image: url({{ member.image_url }});
+                            style="background-image: url({{ member.image_thumbnail }});
                             background-size: cover; background-position: center;"
                             ><p style="height:135px;"></p>
                             <p>{{ member.name}}</p>
@@ -60,8 +68,8 @@
                             <span style="display:none;" class="more_info">
                                         {{ member.bio.description }}
                                     </span>
+                            <input type="hidden" value="{{ member.image_url }}"/>
                             </span>
-
                         {% endfor %}
 
 

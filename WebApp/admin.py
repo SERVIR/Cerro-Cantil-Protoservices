@@ -2,6 +2,7 @@ from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
 from WebApp.models import *
+from image_cropping import ImageCroppingMixin
 
 # Register the models to the admin site
 
@@ -40,5 +41,11 @@ class OrganizationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 admin.site.register(Organization, OrganizationAdmin)  # register the Organization model to the admin site
 admin.site.register(WMSLayer)
 admin.site.register(PlanetTile)
-admin.site.register(TeamMember)
+
+
+class TeamMemberAdmin(ImageCroppingMixin, admin.ModelAdmin):
+    pass
+
+
+admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(MemberBio)

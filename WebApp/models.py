@@ -1,4 +1,6 @@
 from django.db import models
+from image_cropping import ImageRatioField
+from image_cropping.utils import get_backend
 
 
 # Organization model: This data model describes an organization that operates a monitoring station network
@@ -49,7 +51,8 @@ class WMSLayer(models.Model):
     url = models.TextField(help_text="Enter url to the WMS service")
     attribution = models.TextField(help_text="Enter data attribution to display in map UI")
     layers = models.CharField(max_length=200, help_text='Enter layer names from the WMS to display')
-    wfs_layer_types = models.CharField(max_length=200, help_text='WFS LayerType(s).  If there are two comma separate', default="")
+    wfs_layer_types = models.CharField(max_length=200, help_text='WFS LayerType(s).  If there are two comma separate',
+                                       default="")
 
     def __str__(self):
         return self.title
@@ -76,6 +79,7 @@ class TeamMember(models.Model):
     photo = models.ImageField(upload_to='icons/',
                               blank=True, null=True,
                               help_text="Square image, minimum 150px X 150px")
+    cropping = ImageRatioField('photo', '480x360')
     date_added = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     organization = models.ForeignKey('Organization', on_delete=models.CASCADE)
@@ -84,6 +88,20 @@ class TeamMember(models.Model):
     bio = models.ForeignKey('MemberBio', on_delete=models.CASCADE)
 
     @property
+    def image_thumbnail(self):
+        if self.photo:
+            return get_backend().get_thumbnail_url(
+                self.photo,
+                {
+                    'size': (480, 360),
+                    'box': self.cropping,
+                    'crop': True,
+                    'detail': True,
+                }
+            )
+        else:
+            return "/static/app/img/no_profile.png"
+
     def image_url(self):
         if self.photo:
             return self.photo.url
@@ -92,8 +110,3 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
-

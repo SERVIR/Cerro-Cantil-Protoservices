@@ -17,4 +17,6 @@ dependencies:
       - climateserv==0.0.24
       - shapely-geojson
       - Pillow
+      - django-image-cropping
+      - easy-thumbnails
 prefix: C:\ProgramData\Anaconda3\envs\cerro_cantil
