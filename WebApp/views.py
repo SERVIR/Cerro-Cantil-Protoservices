@@ -106,6 +106,8 @@ def about(request):
     team_members = TeamMember.objects.exclude(active=False).order_by("display_order").all()
     return render(request, 'WebApp/about.html', {"team": team_members})
 
+def privacy(request):
+    return render(request, 'WebApp/privacy.html', {})
 
 @xframe_options_exempt
 def feedback(request):

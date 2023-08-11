@@ -21,6 +21,7 @@ urlpatterns = [
     path('feedback/', views.feedback, name='feedback'),
     path('updates/', views.updates, name='updates'),
     path('select_aoi/', views.select_aoi, name='select_aoi'),
+    path('privacy/', views.privacy, name='privacy'),
 
     path('map_chart/', views.map_chart, name='map_chart'),
     path('chart_sqlite/stations/', api_handlers.stations, name='stations'),
@@ -36,6 +37,5 @@ urlpatterns = [
     path('map_from_gee/get-gee-user-layer/', api_handlers.get_gee_user_layer, name='get-gee-user-layer'),
     path('map_chart/get-measurements/', api_handlers.get_measurements, name='get-measurements'),
     path('get_cam_areas/', api_handlers.get_cam_areas, name='get_cam_areas'),
-
-]
+    ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
