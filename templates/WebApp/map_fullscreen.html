@@ -66,8 +66,6 @@
 {% block content %}
 
     <div class="container-fluid p-0  bg-gray-300">
-        <!-- Full Screen WMS map -->
-        <!-- This template can be used when there is a need to visualize GEE layers in a full screen page. To make any updates, visit map_fullscreen.js -->
 
         <div class="row">
                     <span
@@ -90,44 +88,10 @@
                             </button>
                         </h2>
                         <!-- Tab pane: Layers -->
-                        <!-- This consists of CHIRPS and ESI Layers. More text about the layer can be added in the popover below
-                             There are opacity controls for the layer and legends are displayed right under the checked layer name-->
-
                         <div id="collapseFull" class="accordion-collapse collapse show"
                              aria-labelledby="headingOne" data-bs-parent="#full_tab_container">
                             <div class="accordion-body">
                                 <div class="side_panel">
-                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="cerro_cantil"#}
-                                    {#                                                                            type="checkbox" checked/>#}
-                                    {#                                        <label class="form-check-label w-75" for="cerro_cantil">Cerro Cantil</label>#}
-                                    {#                                        <a class="float-right" role="button" href=#"#}
-                                    {#                                           data-bs-toggle="popover"#}
-                                    {#                                           data-bs-trigger="focus" title="Cerro Cantil"#}
-                                    {#                                           data-bs-content="Outline of the Cerro Cantil protected area"><i#}
-                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-                                    {#                                    </div>#}
-
-                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="santa_maria"#}
-                                    {#                                                                            type="checkbox" checked/>#}
-                                    {#                                        <label class="form-check-label w-75" for="santa_maria">Santa Maria Tzeja</label>#}
-                                    {#                                        <a class="float-right" role="button" href=#"#}
-                                    {#                                           data-bs-toggle="popover"#}
-                                    {#                                           data-bs-trigger="focus" title="Santa Maria Tzeja"#}
-                                    {#                                           data-bs-content="Outline of the Santa Maria Tzeja village in Guatemala"><i#}
-                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-                                    {#                                    </div>#}
-
-                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="cam_areas"#}
-                                    {#                                                                            type="checkbox" checked disabled/>#}
-                                    {#                                        <label class="form-check-label w-75" for="cam_areas">cam_areas</label>#}
-                                    {#                                        <a class="float-right" role="button" href=#"#}
-                                    {#                                           data-bs-toggle="popover"#}
-                                    {#                                           data-bs-trigger="focus" title="cam areas"#}
-                                    {#                                           data-bs-content="cam areas"><i#}
-                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-                                    {#                                    </div>#}
-
-
                                     <ol class="layers vertical w-100" id="layer-list">
 
                                         <li id="cerro_cantil_node"
@@ -144,16 +108,16 @@
                                                                           title="Cerro Cantil"
                                                                           data-toggle="tooltip"
                                                                   >
-                                      <input type="checkbox"
-                                             id="cerro_cantil"
-                                             name="cerro_cantil"
-                                             checked
-                                             class="form-check-input"
-                                      />
-                                      <label for="cerro_cantil"
-                                             class="cblabel">Cerro Cantil</label>
-                                      <br/>
-                                  </span>
+                                                                      <input type="checkbox"
+                                                                             id="cerro_cantil"
+                                                                             name="cerro_cantil"
+                                                                             checked
+                                                                             class="form-check-input"
+                                                                      />
+                                                                      <label for="cerro_cantil"
+                                                                             class="cblabel">Cerro Cantil</label>
+                                                                      <br/>
+                                                                  </span>
                                                                     <div>
                                                                         <i id="legend_cerro_cantil"
                                                                            class="fas fa-list legend-btn"
@@ -192,16 +156,16 @@
                                                                           title="Santa Maria Tzeja"
                                                                           data-toggle="tooltip"
                                                                   >
-                                      <input type="checkbox"
-                                             id="santa_maria"
-                                             name="santa_maria"
-                                             checked
-                                             class="form-check-input"
-                                      />
-                                      <label for="santa_maria"
-                                             class="cblabel">Santa Maria Tzeja</label>
-                                      <br/>
-                                  </span>
+                                                                      <input type="checkbox"
+                                                                             id="santa_maria"
+                                                                             name="santa_maria"
+                                                                             checked
+                                                                             class="form-check-input"
+                                                                      />
+                                                                      <label for="santa_maria"
+                                                                             class="cblabel">Santa Maria Tzeja</label>
+                                                                      <br/>
+                                                                  </span>
                                                                     <div>
                                                                         <i id="legend_santa_maria"
                                                                            class="fas fa-list legend-btn"
@@ -215,8 +179,6 @@
 
                                                                         </i>
                                                                     </div>
-
-
                                                                 </div>
                                                                 <div class="rst__rowToolbar"></div>
                                                             </div>
@@ -225,7 +187,6 @@
                                                 </div>
                                             </div>
                                         </li>
-
                                         <li id="cam_areas_node"
                                             style="display: block; max-width: 100%; ">
                                             <div class="rst__nodeContent" style="left: 44px">
@@ -240,17 +201,17 @@
                                                                           title="Central America Protected Areas"
                                                                           data-toggle="tooltip"
                                                                   >
-                                      <input type="checkbox"
-                                             id="cam_areas"
-                                             name="cam_areas"
-                                             checked
-                                             disabled
-                                             class="form-check-input"
-                                      />
-                                      <label for="cam_areas"
-                                             class="cblabel">Central America Protected Areas</label>
-                                      <br/>
-                                  </span>
+                                                                      <input type="checkbox"
+                                                                             id="cam_areas"
+                                                                             name="cam_areas"
+                                                                             checked
+                                                                             disabled
+                                                                             class="form-check-input"
+                                                                      />
+                                                                      <label for="cam_areas"
+                                                                             class="cblabel">Central America Protected Areas</label>
+                                                                      <br/>
+                                                                  </span>
                                                                     <div>
                                                                         <i id="legend_cam_areas "
                                                                            class="fas fa-list legend-btn"
@@ -281,7 +242,7 @@
                                             <div class="rst__nodeContent" style="left: 44px">
                                                 <div style="height: 100%">
                                                     <div class="rst__rowWrapper">
-                                                        <div class="rst__row" style="opacity: 1" >
+                                                        <div class="rst__row" style="opacity: 1">
                                                             <div class="rst__moveHandle"></div>
                                                             <div class="rst__rowContents ignore-elements">
                                                                 <div class="rst__rowLabel">
@@ -290,16 +251,16 @@
                                                                           title="Rivers"
                                                                           data-toggle="tooltip"
                                                                   >
-                                      <input type="checkbox"
-                                             id="rivers"
-                                             name="rivers"
-                                             checked
-                                             class="form-check-input"
-                                      />
-                                      <label for="rivers"
-                                             class="cblabel">rivers</label>
-                                      <br/>
-                                  </span>
+                                                                      <input type="checkbox"
+                                                                             id="rivers"
+                                                                             name="rivers"
+                                                                             checked
+                                                                             class="form-check-input"
+                                                                      />
+                                                                      <label for="rivers"
+                                                                             class="cblabel">rivers</label>
+                                                                      <br/>
+                                                                  </span>
                                                                     <div>
                                                                         <i id="legend_rivers "
                                                                            class="fas fa-list legend-btn"
@@ -329,7 +290,7 @@
                                                 <div class="rst__nodeContent" style="left: 44px">
                                                     <div style="height: 100%">
                                                         <div class="rst__rowWrapper">
-                                                            <div class="rst__row" style="opacity: 1" >
+                                                            <div class="rst__row" style="opacity: 1">
                                                                 <div class="rst__moveHandle"></div>
                                                                 <div class="rst__rowContents ignore-elements">
                                                                     <div class="rst__rowLabel">
@@ -338,15 +299,15 @@
                                                                           title="{{ layer.title }}"
                                                                           data-toggle="tooltip"
                                                                   >
-                                      <input type="checkbox"
-                                             id="wms_{{ layer.id }}"
-                                             name="wms_{{ layer.id }}"
-                                             class="form-check-input"
-                                             onchange="toggle_layer(this.checked, '{{ layer.id }}_layer')"/>
-                                      <label for="wms_{{ layer.id }}"
-                                             class="cblabel">{{ layer.title }}</label>
-                                      <br/>
-                                  </span>
+                                                                      <input type="checkbox"
+                                                                             id="wms_{{ layer.id }}"
+                                                                             name="wms_{{ layer.id }}"
+                                                                             class="form-check-input"
+                                                                             onchange="toggle_layer(this.checked, '{{ layer.id }}_layer')"/>
+                                                                      <label for="wms_{{ layer.id }}"
+                                                                             class="cblabel">{{ layer.title }}</label>
+                                                                      <br/>
+                                                                  </span>
                                                                         <div>
                                                                             <i id="legend_{{ layer.id }} "
                                                                                class="fas fa-list legend-btn"
@@ -399,7 +360,7 @@
                                                 <div style="height: 100%">
                                                     <div class="rst__rowWrapper">
                                                         <div class="rst__row" style="opacity: 1">
-                                                            <div class="rst__moveHandle" ></div>
+                                                            <div class="rst__moveHandle"></div>
                                                             <div class="rst__rowContents ignore-elements opacity-control">
                                                                 <div class="rst__rowLabel opacity-control">
                                                                   <span
@@ -439,71 +400,32 @@
                                             </div>
                                         </li>
                                     </ol>
-
-                                    {#                                    {% for layer in wms_layers %}#}
-                                    {##}
-                                    {#                                        <div class="d-inline-flex w-100"><input class="form-check-input"#}
-                                    {#                                                                                id="wms_{{ layer.id }}"#}
-                                    {#                                                                                type="checkbox" checked#}
-                                    {#                                                                                onchange="toggle_layer({{ layer.id }})"/>#}
-                                    {#                                            <label class="form-check-label w-75"#}
-                                    {#                                                   for="wms_{{ layer.id }}">{{ layer.title }}</label>#}
-                                    {#                                            <a class="float-right" role="button" href=#"#}
-                                    {#                                               data-bs-toggle="popover"#}
-                                    {#                                               data-bs-trigger="focus" title="{{ layer.title }}"#}
-                                    {#                                               data-bs-content="have to add description to model"><i#}
-                                    {#                                                    class="fa-solid fa-circle-info info_btn"></i></a>#}
-                                    {#                                        </div>#}
-                                    {##}
-                                    {#                                    {% endfor %}#}
-
-
-                                    {#                                    <div class="d-inline-flex w-100">#}
-                                    {#                                        <input class="form-check-input" id="chirps_full" type="checkbox"/>#}
-                                    {#                                        <label class="form-check-label w-75" for="chirps_full">CHIRPS Layer</label>#}
-                                    {#                                        <a class="float-right" role="button" href=#"#}
-                                    {#                                           data-bs-toggle="popover" title="CHIRPS"#}
-                                    {#                                           data-bs-trigger="focus" data-bs-content="Info about chirps">#}
-                                    {#                                            <i class="fa-solid fa-circle-info info_btn"></i>#}
-                                    {#                                        </a>#}
-                                    {#                                    </div>#}
-                                    {##}
-                                    {#                                    <input id="opacity_chirps_full"#}
-                                    {#                                           type="range"#}
-                                    {#                                           value="contrast"#}
-                                    {#                                           max="0.5"#}
-                                    {#                                           min="0"#}
-                                    {#                                           step="0.01"#}
-                                    {#                                           style="display: none;"#}
-                                    {#                                    /><label class="ml-1"#}
-                                    {#                                             id="chirps_full_opacity"></label>#}
-                                    {#                                    <div id="legend_full_chirps"></div>#}
-                                    {#                                    <div class="d-inline-flex w-100"><input class="form-check-input" id="esi_full"#}
-                                    {#                                                                            type="checkbox"/>#}
-                                    {#                                        <label class="form-check-label w-75" for="esi_full">ESI Layer</label>#}
-                                    {#                                        <a class="float-right" role="button" href=#"#}
-                                    {#                                           data-bs-toggle="popover"#}
-                                    {#                                           data-bs-trigger="focus" title="ESI"#}
-                                    {#                                           data-bs-content="Info about esi"><i#}
-                                    {#                                                class="fa-solid fa-circle-info info_btn"></i></a>#}
-                                    {#                                    </div>#}
-                                    {##}
-                                    {#                                    <input id="opacity_esi_full"#}
-                                    {#                                           type="range"#}
-                                    {#                                           value="contrast"#}
-                                    {#                                           max="0.5"#}
-                                    {#                                           min="0"#}
-                                    {#                                           step="0.01"#}
-                                    {#                                           style="display: none;"#}
-                                    {#                                    /><label class="ml-1"#}
-                                    {#                                             id="esi_full_opacity"></label>#}
-                                    {#                                    <div id="legend_full_esi"></div>#}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Tab pane: Basemaps -->
                     <!-- This tab is used when there is a need to change basemaps. The basemaps used are present in basemaps.js -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingWeather">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseWeather" aria-expanded="false"
+                                    aria-controls="collapseWeather">
+                                Weather
+                            </button>
+                        </h2>
+
+                        <div id="collapseWeather" class="accordion-collapse collapse" aria-labelledby="headingWeather"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="weathertab" aria-labelledby="profile-tab">
+                                <div id="wwo-weather-widget-1"></div>
+                                <script type='text/javascript'
+                                        src='https://www.worldweatheronline.com/widget/v5/weather-widget.ashx?loc=908553&wid=1&tu=1&div=wwo-weather-widget-1'
+                                        async></script>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
