@@ -5,6 +5,8 @@ from pathlib import Path
 from django.contrib import messages
 from django.shortcuts import render
 from django.templatetags.static import static
+from django.db.models import Count, Sum
+from django.db.models.functions import TruncMonth
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views.decorators.clickjacking import xframe_options_exempt
@@ -131,10 +133,10 @@ def updates(request):
 def get_fires_in_bounding_box(request):
     # Add start_date and end_date parameters
     # then uncomment the range filter
-    min_lon = -91.76879882812501
-    min_lat = 15.536391268328162  # Lower-left corner
-    max_lon = -89.99450683593751
-    max_lat = 16.266095786250403  # Upper-right corner
+    min_lon = -91.76879882812501 # sw_lng
+    min_lat = 15.536391268328162  # sw_lat
+    max_lon = -89.99450683593751 # ne_lng
+    max_lat = 16.266095786250403  # ne_lat
 
     fires_in_bbox = Fire.objects.filter(
         Q(latitude__gte=min_lat) &
@@ -151,3 +153,27 @@ def get_fires_in_bounding_box(request):
     serialized_fires = serializers.serialize('json', fires_in_bbox)
 
     return JsonResponse(serialized_fires, safe=False)
+
+
+def get_fires_sum_by_month(request):
+
+    min_lon =  request.POST.get("sw_lng", request.GET.get("sw_lng"))
+    min_lat = request.POST.get("sw_lat", request.GET.get("sw_lat"))   # Lower-left corner
+    max_lon = request.POST.get("ne_lng", request.GET.get("ne_lng"))
+    max_lat = request.POST.get("ne_lat", request.GET.get("ne_lat")) # Upper-right corner
+
+    fires_query = Fire.objects.filter(
+        latitude__gte=min_lat,
+        latitude__lte=max_lat,
+        longitude__gte=min_lon,
+        longitude__lte=max_lon
+    )
+
+    fires_by_month = fires_by_month = fires_query.annotate(
+        month=TruncMonth('acq_date')
+    ).values('month').annotate(
+        total_fires=Count('id')
+        # total_damage=Sum('damage_field')  # Replace with your actual damage field name
+    ).order_by('month')
+
+    return JsonResponse(list(fires_by_month), safe=False)
