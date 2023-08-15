@@ -22,6 +22,7 @@ urlpatterns = [
     path('updates/', views.updates, name='updates'),
     path('select_aoi/', views.select_aoi, name='select_aoi'),
     path('privacy/', views.privacy, name='privacy'),
+    path('firebox/', views.get_fires_in_bounding_box, name="firebox"),
 
     path('map_chart/', views.map_chart, name='map_chart'),
     path('chart_sqlite/stations/', api_handlers.stations, name='stations'),

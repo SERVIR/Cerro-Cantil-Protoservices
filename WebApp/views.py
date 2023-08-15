@@ -1,3 +1,4 @@
+import datetime
 import json
 from pathlib import Path
 
@@ -8,6 +9,10 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
+from django.core import serializers
+from django.http import JsonResponse
+from WebApp.models import Fire
 
 from WebApp.forms import MeasurementForm
 from WebApp.models import Measurement
@@ -23,30 +28,7 @@ data = json.load(f)
 
 
 def home(request):
-    context = {
-        "app_cards": [
-            {"name": "Display WMS data (fixed-size view)", "background_image_url": static("/images/cards/fixed.PNG"),
-             'url': reverse('map_fixed_size')},
-            {"name": "Display GEE data (fixed-size view)", "background_image_url": static("/images/cards/gee.PNG"),
-             'url': reverse('map_from_gee')},
-            {"name": "Display WMS data (full-screen view)", "background_image_url": static("/images/cards/full.PNG"),
-             'url': reverse('map_full_screen')},
-            {"name": "Chart from NetCDF file", "background_image_url": static("/images/cards/netCDF.jpg"),
-             'url': reverse('chart_from_netcdf')},
-            {"name": "Chart from ClimateSERV API", "background_image_url": static("/images/cards/ClimateSERV.jpg"),
-             'url': reverse('chart_climateserv')},
-            {"name": "Chart from SQL Database", "background_image_url": static("/images/cards/SQLite.jpg"),
-             'url': reverse('chart_sqlite')},
-            {"name": "Use forms to enter data", "background_image_url": static("/images/cards/EnterData.jpg"),
-             'url': reverse('updates')},
-            {"name": "Select AOI on a map", "background_image_url": static("/images/cards/aoi.PNG"),
-             'url': reverse('select_aoi')},
-            {"name": "Map & Chart", "background_image_url": static("/images/cards/fixed.PNG"),
-             'url': reverse('map_chart')},
-        ],
-    }
-
-    return render(request, 'WebApp/home.html', context)
+    return render(request, 'WebApp/home.html', {})
 
 
 @csrf_exempt
@@ -143,3 +125,29 @@ def updates(request):
     else:
         form = MeasurementForm()
     return render(request, 'WebApp/update_datamodel.html', {"form": form})
+
+
+@csrf_exempt
+def get_fires_in_bounding_box(request):
+    # Add start_date and end_date parameters
+    # then uncomment the range filter
+    min_lon = -91.76879882812501
+    min_lat = 15.536391268328162  # Lower-left corner
+    max_lon = -89.99450683593751
+    max_lat = 16.266095786250403  # Upper-right corner
+
+    fires_in_bbox = Fire.objects.filter(
+        Q(latitude__gte=min_lat) &
+        Q(latitude__lte=max_lat) &
+        Q(longitude__gte=min_lon) &
+        Q(longitude__lte=max_lon)
+    )
+
+    fires_in_bbox= fires_in_bbox.filter(acq_date__lt=datetime.date(2001, 1, 31))
+
+    # fires_in_bbox = fires_in_bbox.filter(date_field__gte=start_date)
+    # fires_in_bbox = fires_in_bbox.filter(date_field__lte=end_date)
+
+    serialized_fires = serializers.serialize('json', fires_in_bbox)
+
+    return JsonResponse(serialized_fires, safe=False)

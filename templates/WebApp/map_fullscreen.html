@@ -337,21 +337,19 @@
                                             </li>
                                             <script>
                                                 $(function () {
-                                                    function _{{ layer.id }}_countUpdater() {
-                                                        map.on('moveend', function (e) {
+                                                    window._{{ layer.id }}_countUpdater = function _{{ layer.id }}_countUpdater() {
+                                                        if (map) {
+                                                            map.on('moveend', function (e) {
+                                                                getFireCount('{{ layer.wfs_layer_types }}', '{{ layer.id }}_count');
+                                                            });
                                                             getFireCount('{{ layer.wfs_layer_types }}', '{{ layer.id }}_count');
-                                                        });
+                                                        } else {
+                                                            setTimeout(_{{ layer.id }}_countUpdater, 250);
+                                                        }
                                                     }
-
-                                                    if (map) {
-                                                        _{{ layer.id }}_countUpdater();
-                                                    } else {
-                                                        console.log("setting");
-                                                        setTimeout(_{{ layer.id }}_countUpdater, 250);
-                                                    }
+                                                    _{{ layer.id }}_countUpdater();
 
                                                 });
-                                                {#getFireCount("ms:fires_modis_7days");#}
                                             </script>
                                         {% endfor %}
                                         <li id="planet_node"

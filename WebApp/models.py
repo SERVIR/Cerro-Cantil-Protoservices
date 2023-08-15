@@ -33,8 +33,8 @@ class Station(models.Model):
 
 
 # Simplified Measurement model: This data model describes the individual measurements taken at a monitoring station
-# The model includes just a small sample of variables (temperature and precipitation) taken on a daily frequency, for demonstration purposes,
-# but it can be easily extended to include more variables and/or more frequent measurements
+# The model includes just a small sample of variables (temperature and precipitation) taken on a daily frequency,
+# for demonstration purposes, but it can be easily extended to include more variables and/or more frequent measurements
 class Measurement(models.Model):
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
     measurement_date = models.DateField(help_text="Measurement Date")
@@ -64,6 +64,16 @@ class PlanetTile(models.Model):
 
     def __str__(self):
         return str(self.image_date)
+
+
+class Fire(models.Model):
+    latitude = models.FloatField(help_text="Detection latitude", default=0.0)
+    longitude = models.FloatField(help_text="Detection longitude", default=0.0)
+    acq_date = models.DateField(help_text="Detection date")
+    instrument = models.TextField(help_text="Instrument", default=0.0)
+
+    def __str__(self):
+        return str(self.acq_date) + "_" + str(self.latitude) + "_" + str(self.longitude) + "_" + str(self.instrument)
 
 
 class MemberBio(models.Model):

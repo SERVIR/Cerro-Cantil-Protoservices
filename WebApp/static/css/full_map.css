@@ -59,6 +59,9 @@ span.rst__rowTitle {
     background-color: #ffffff;
     width: 50px;
 }
+.apixu-weather-todays-stats-location{
+    display: none!important;
+}
 
 .rst__rowWrapper {
     padding: 0 10px 0 0;
