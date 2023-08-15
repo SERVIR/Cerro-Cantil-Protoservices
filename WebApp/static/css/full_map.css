@@ -49,6 +49,9 @@ span.rst__rowTitle {
     font-size: 36px;
     margin-left: 50px;
 }
+.nav-tabs .nav-item .nav-link.active {
+    color: #162518!important;
+}
 
 #nav_opener {
     font-size: 30px;
