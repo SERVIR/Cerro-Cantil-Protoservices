@@ -11,6 +11,18 @@
     transition: 0.5s;
 }
 
+.row{
+    margin-right:unset!important;
+    margin-left:unset!important;
+    --bs-gutter-x:unset!important;
+    --bs-gutter-y:unset!important;
+}
+
+.row>*{
+    padding-right:unset;
+    padding-left:unset;
+}
+
 .sidenav a {
     padding: 0px 23px 8px 18px;
     text-decoration: none;
@@ -26,6 +38,34 @@
 
 span.rst__rowTitle {
     padding-left: 1em;
+}
+
+.footerDrawer {
+    /*background-color: #eeeeee;*/
+    width: calc(100% - 356px);
+    position: absolute;
+    bottom: 50px;
+    z-index: 1111;
+    right: 4px;
+}
+
+.footerDrawer .open {
+    background-color: #fcc219;
+    color: #162518;
+    width: 121px;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+    border-top: 2px solid #162518;
+    border-right: 2px solid #162518;
+    border-left: 2px solid #162518;
+}
+
+.footerDrawer .content {
+    height: 33vh;
+    max-height: 500px;
+    /*background-color: rgba(204, 204, 204, 0.85);*/
+    display: none;
 }
 
 .close-panel {
@@ -61,6 +101,8 @@ span.rst__rowTitle {
     z-index: 999;
     background-color: #ffffff;
     width: 50px;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
 }
 .apixu-weather-todays-stats-location{
     display: none!important;
@@ -202,7 +244,7 @@ span.rst__rowTitle {
 #map3 {
     height: calc(100vh - 166px);
     z-index: 99;
-    margin-left: 5px;
+    margin-left: 0;
 
 }
 
