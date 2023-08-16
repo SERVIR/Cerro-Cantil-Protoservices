@@ -77,6 +77,17 @@ span.rst__rowTitle {
     padding: 0;
 }
 
+.leaflet-bottom.leaflet-right{
+    max-width: calc(50vw - 250px);
+    width: calc(50vw - 250px);
+    overflow-wrap: normal;
+}
+
+.leaflet-control-attribution.leaflet-control{
+    max-width: calc(50vw - 250px);
+    overflow-wrap: break-word;
+}
+
 
 .sidenav a:hover {
     color: #818181;
