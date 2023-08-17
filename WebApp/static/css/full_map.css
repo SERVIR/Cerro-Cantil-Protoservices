@@ -403,6 +403,7 @@ html {
 }
 #wrapper{
     max-height: calc(100% - 50px);
+    min-height: calc(100% - 50px);
 }
 
 @media screen and (max-width: 900px) {
@@ -417,6 +418,10 @@ html {
 @media screen and (max-width: 650px) {
     #mySidenav.open{
         width: 100vw;
+    }
+    #wrapper{
+        max-height: unset;
+        min-height: unset;
     }
 }
 
