@@ -52,8 +52,12 @@
     <script src="{% static '/js/geosearch.umd.js' %}"></script>
     <script src="{% static '/js/map_utils.js' %}"></script>
     <script>
+        let mycookie;
+        $(function () {
+    $('body').append('{% csrf_token %}');
+     mycookie = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+        });
 
-    let mycookie = {% csrf_token %};
         let client_layers = [];
         {% for layer in wms_layers %}
             client_layers.push({
