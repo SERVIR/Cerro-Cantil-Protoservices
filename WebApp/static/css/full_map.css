@@ -424,7 +424,7 @@ html {
         min-height: unset;
     }
     .footerDrawer .content {
-        height: 500px;
+        height: 90vh;
         overflow: scroll;
     }
 }
