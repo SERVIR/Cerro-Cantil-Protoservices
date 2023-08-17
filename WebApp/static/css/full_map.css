@@ -86,7 +86,7 @@ span.rst__rowTitle {
 .footerDrawer .content {
     height: 33vh;
     max-height: 500px;
-    /*background-color: rgba(204, 204, 204, 0.85);*/
+    background-color: rgba(204, 204, 204, 0.85);
     display: none;
     vertical-align: top;
 }
@@ -422,6 +422,9 @@ html {
     #wrapper{
         max-height: unset;
         min-height: unset;
+    }
+    .footerDrawer .content {
+        height: 100%
     }
 }
 
