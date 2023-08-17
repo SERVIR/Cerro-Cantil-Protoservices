@@ -391,6 +391,9 @@ html {
     text-decoration: none;
     cursor: pointer;
 }
+#wrapper{
+    border: 10px solid red;
+}
 
 @media screen and (max-width: 900px) {
     #attribution_icon{
