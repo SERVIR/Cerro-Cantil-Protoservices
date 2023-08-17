@@ -1,4 +1,13 @@
 /* styles specific to map_fullscreen.html */
+:root {
+    --unit-100vh: 100vh;
+}
+@supports (height: 100dvh) {
+    :root {
+        --unit-100vh: 100dvh;
+    }
+}
+
 .sidenav {
     height: calc(100vh - 186px);
     padding: 0px;
