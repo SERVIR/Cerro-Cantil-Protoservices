@@ -296,8 +296,8 @@ span.rst__rowTitle {
 }
 
 #map3 {
-    height: calc(100vh - 166px);
-    z-index: 99;
+    height:calc(100vh - 186px);
+    z-index: 98;
     margin-left: 0;
 
 }
