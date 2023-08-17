@@ -53,3 +53,9 @@
     background-color: #162518;
     color: #fcc219;
 }
+
+@media screen and (max-width: 650px) {
+    .footer_home{
+        display: none;
+    }
+}

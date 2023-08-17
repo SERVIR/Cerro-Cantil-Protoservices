@@ -97,9 +97,9 @@
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse" style="text-align: center" id="navbarSupportedContent">
 
-                        <ul class="navbar-nav float-right" id="ul_navbar">
+                        <ul class="navbar-nav" id="ul_navbar">
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'map' %}">Map</a>
                             </li>
@@ -143,7 +143,7 @@
 <div class="d-flex flex-column">
     <footer id="footer">
         <div class="app-copy">
-            <a href="{% url 'privacy' %}" title="Privacy and Terms of use">Privacy and Terms of use</a> | <a href="/" title="Cerro Cantil Protoservices">Cerro Cantil Protoservices</a>
+            <a href="{% url 'privacy' %}" title="Privacy and Terms of use">Privacy and Terms of use</a> <span class="footer_home">|</span> <a class="footer_home" href="/" title="Cerro Cantil Protoservices">Cerro Cantil Protoservices</a>
 
         </div>
         <div class="ml-auto app-power">

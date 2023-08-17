@@ -45,7 +45,7 @@ span.rst__rowTitle {
     width: calc(100% - 356px);
     position: absolute;
     bottom: 50px;
-    z-index: 1111;
+    z-index: 99;
     right: 4px;
 }
 
@@ -59,6 +59,19 @@ span.rst__rowTitle {
     border-top: 2px solid #162518;
     border-right: 2px solid #162518;
     border-left: 2px solid #162518;
+}
+
+#mySidenav{
+    width:0;
+}
+
+#mySidenav.open{
+    width: 350px;
+}
+
+.footerDrawer .open:hover {
+    background-color: #fdecc2;
+
 }
 
 .footerDrawer .content {
@@ -97,8 +110,12 @@ span.rst__rowTitle {
     background-image: url('/static/images/attribution.png');
     background-size: cover;
     display: none;
+    cursor: pointer;
 }
 
+#attribution_icon:hover{
+    background-image: url('/static/images/attribution_hover.png');
+}
 
 .sidenav a:hover {
     color: #818181;
@@ -121,11 +138,17 @@ span.rst__rowTitle {
     position: absolute;
     left: 0px;
     z-index: 999;
-    background-color: #ffffff;
+    color: #162518;
+    background-color: #fcc219;
     width: 50px;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
 }
+
+#nav_opener:hover {
+    background-color: #fdecc2;
+}
+
 .apixu-weather-todays-stats-location{
     display: none!important;
 }
@@ -315,6 +338,21 @@ html {
     max-width: calc(50% - 12px);
 }
 
+.leaflet-bar a {
+    background-color: #fcc219;
+    color:#162518;
+}
+
+.leaflet-bar a.leaflet-disabled {
+    background-color: #fdecc2;
+    color: rgba(22, 37, 24, 0.6);
+}
+
+.leaflet-bar a:hover, .leaflet-bar a:focus {
+    background-color: #fdecc2;
+    color:#162518;
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -360,6 +398,12 @@ html {
     }
     .leaflet-control-attribution.leaflet-control{
         display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #mySidenav.open{
+        width: 100vw;
     }
 }
 
