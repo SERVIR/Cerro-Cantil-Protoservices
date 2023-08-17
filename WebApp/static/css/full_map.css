@@ -424,7 +424,7 @@ html {
         min-height: unset;
     }
     .footerDrawer .content {
-        height: 100%
+        height: 500px
     }
 }
 
