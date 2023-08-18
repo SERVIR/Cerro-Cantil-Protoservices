@@ -1,4 +1,7 @@
 /* styles for base template page */
+body{
+    padding-top:136px;
+}
 #wrapper {
     min-height: calc(100vh - 50px);
 }
