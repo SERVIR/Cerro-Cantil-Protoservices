@@ -9,7 +9,7 @@
           href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
           integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin=""/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-compare/dist/leaflet-compare.css">
+
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
             integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     <script src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js"
@@ -19,7 +19,7 @@
     <script type="text/javascript"
             src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
 
-    <script src="https://unpkg.com/leaflet-compare/dist/leaflet-compare.js"></script>
+
     <script src="{% static '/js/L.Control.Opacity.js' %}"></script>
     <link href="{% static '/css/L.Control.Opacity.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
@@ -45,12 +45,20 @@
     <script src="{% static 'js/utils.js' %}"></script>
 
     <script src="{% static 'js/basemaps.js' %}"></script>
+    <script src="{% static '/js/leaflet-compare.js' %}"></script>
     <link
             rel="stylesheet"
             href="{% static '/css/geosearch.css' %}"
     />
+{#    <link#}
+{#            rel="stylesheet"#}
+{#            href="{% static '/css/range.css' %}"#}
+{#    />#}
 
     <link href="{% static '/css/full_map.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/layout.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/range.css' %}" rel="stylesheet"/>
+
 
     <script src="{% static '/js/geosearch.umd.js' %}"></script>
     <script src="{% static '/js/map_utils.js' %}"></script>
@@ -397,6 +405,51 @@
                                                                class="opacity-control"
                                                         /><label class="ml-1" for="opacity_planet"
                                                                  id="planet_opacity"></label>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li id="nicfi_node"
+                            style="display: block; max-width: 100%; ">
+                            <div class="rst__nodeContent" style="left: 44px">
+                                <div style="height: 100%">
+                                    <div class="rst__rowWrapper">
+                                        <div class="rst__row" style="opacity: 1">
+                                            <div class="rst__moveHandle"></div>
+                                            <div class="rst__rowContents ignore-elements opacity-control">
+                                                <div class="rst__rowLabel opacity-control">
+                                                                  <span
+                                                                          class="rst__rowTitle"
+                                                                          title="Imágenes de Alta Resolución (fuente: Planet - últimos 5 días)"
+                                                                          data-toggle="tooltip"
+                                                                  >
+                                                                      <input type="checkbox"
+                                                                             id="nicfi"
+                                                                             name="nicfi"
+                                                                             class="form-check-input"
+                                                                      />
+                                                                      <label for="nicfi"
+                                                                             class="cblabel">Imágenes de Alta Resolución (fuente: NICFI)</label>
+                                                                      <br/>
+                                                                  </span>
+                                                    <div class="opacity-control">
+                                                        <input id="opacity_nicfi"
+                                                               type="range"
+                                                               max="1"
+                                                               min="0"
+                                                               value="1"
+                                                               step="0.01"
+                                                               style="display: block;width:100%;"
+                                                               class="opacity-control"
+                                                        /><label class="ml-1" for="opacity_nicfi"
+                                                                 id="planet_nicfi"></label>
                                                     </div>
 
 
