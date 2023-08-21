@@ -66,6 +66,13 @@ class PlanetTile(models.Model):
         return str(self.image_date)
 
 
+class NICFIAvailable(models.Model):
+    image_date = models.TextField(help_text="Image YYYY-mm")
+
+    def __str__(self):
+        return str(self.image_date)
+
+
 class Fire(models.Model):
     latitude = models.FloatField(help_text="Detection latitude", default=0.0)
     longitude = models.FloatField(help_text="Detection longitude", default=0.0)

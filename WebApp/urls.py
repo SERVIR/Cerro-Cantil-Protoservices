@@ -25,6 +25,8 @@ urlpatterns = [
     path('firebox/', views.get_fires_in_bounding_box, name="firebox"),
     path('monthlyfire/', views.get_fires_sum_by_month, name="monthlyfire"),
 
+    path('nicfi_proxy/', views.nicfi_proxy, name='nicfi_proxy'),
+    path('planet_proxy/', views.planet_proxy, name='planet_proxy'),
     path('map_chart/', views.map_chart, name='map_chart'),
     path('chart_sqlite/stations/', api_handlers.stations, name='stations'),
 

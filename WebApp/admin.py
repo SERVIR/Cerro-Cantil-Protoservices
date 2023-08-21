@@ -49,3 +49,4 @@ class TeamMemberAdmin(ImageCroppingMixin, admin.ModelAdmin):
 
 admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(MemberBio)
+admin.site.register(NICFIAvailable)

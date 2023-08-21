@@ -406,6 +406,18 @@ html {
     min-height: calc(100% - 50px);
 }
 
+/* The container must be positioned relative: */
+.mosaic-select {
+    position: relative;
+    font-family: Arial;
+    width: 45%;
+    display: inline-block;
+}
+
+div#mosaic-range {
+    margin-bottom: 8px;
+}
+
 @media screen and (max-width: 900px) {
     #attribution_icon{
         display: block;
@@ -424,7 +436,6 @@ html {
         min-height: unset;
     }
     .footerDrawer .content {
-    /*height: calc(100vh - 210px);*/
         position: relative;
         height: 100%;
     }

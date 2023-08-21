@@ -50,10 +50,10 @@
             rel="stylesheet"
             href="{% static '/css/geosearch.css' %}"
     />
-{#    <link#}
-{#            rel="stylesheet"#}
-{#            href="{% static '/css/range.css' %}"#}
-{#    />#}
+    {#    <link#}
+    {#            rel="stylesheet"#}
+    {#            href="{% static '/css/range.css' %}"#}
+    {#    />#}
 
     <link href="{% static '/css/full_map.css' %}" rel="stylesheet"/>
     <link href="{% static '/css/layout.css' %}" rel="stylesheet"/>
@@ -65,8 +65,8 @@
     <script>
         let mycookie;
         $(function () {
-    $('body').append('{% csrf_token %}');
-     mycookie = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+            $('body').append('{% csrf_token %}');
+            mycookie = document.getElementsByName("csrfmiddlewaretoken")[0].value;
         });
 
         let client_layers = [];
@@ -100,27 +100,35 @@
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="layers-tab" data-bs-toggle="tab" data-bs-target="#layers" type="button" role="tab" aria-controls="layers" aria-selected="true">Layers</button>
+                        <button class="nav-link active" id="layers-tab" data-bs-toggle="tab" data-bs-target="#layers"
+                                type="button" role="tab" aria-controls="layers" aria-selected="true">Layers
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="weather-tab" data-bs-toggle="tab" data-bs-target="#weather" type="button" role="tab" aria-controls="weather" aria-selected="false">Weather</button>
+                        <button class="nav-link" id="weather-tab" data-bs-toggle="tab" data-bs-target="#weather"
+                                type="button" role="tab" aria-controls="weather" aria-selected="false">Weather
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="basemaps-tab" data-bs-toggle="tab" data-bs-target="#basemaps" type="button" role="tab" aria-controls="basemaps" aria-selected="false">Basemaps</button>
+                        <button class="nav-link" id="basemaps-tab" data-bs-toggle="tab" data-bs-target="#basemaps"
+                                type="button" role="tab" aria-controls="basemaps" aria-selected="false">Basemaps
+                        </button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="layers" role="tabpanel" aria-labelledby="layers-tab" style="margin-top: 10px;"><ol class="layers vertical w-100" id="layer-list">
+                    <div class="tab-pane fade show active" id="layers" role="tabpanel" aria-labelledby="layers-tab"
+                         style="margin-top: 10px;">
+                        <ol class="layers vertical w-100" id="layer-list">
 
-                        <li id="cerro_cantil_node"
-                            style="display: block; max-width: 100%; ">
-                            <div class="rst__nodeContent" style="left: 44px">
-                                <div style="height: 100%">
-                                    <div class="rst__rowWrapper">
-                                        <div class="rst__row" style="opacity: 1" draggable="true">
-                                            <div class="rst__moveHandle"></div>
-                                            <div class="rst__rowContents ignore-elements">
-                                                <div class="rst__rowLabel">
+                            <li id="cerro_cantil_node"
+                                style="display: block; max-width: 100%; ">
+                                <div class="rst__nodeContent" style="left: 44px">
+                                    <div style="height: 100%">
+                                        <div class="rst__rowWrapper">
+                                            <div class="rst__row" style="opacity: 1" draggable="true">
+                                                <div class="rst__moveHandle"></div>
+                                                <div class="rst__rowContents ignore-elements">
+                                                    <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="Cerro Cantil"
@@ -136,39 +144,39 @@
                                                                              class="cblabel">Cerro Cantil</label>
                                                                       <br/>
                                                                   </span>
-                                                    <div>
-                                                        <i id="legend_cerro_cantil"
-                                                           class="fas fa-list legend-btn"
-                                                           onclick="openLegend('cerro_cantil')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                        <div>
+                                                            <i id="legend_cerro_cantil"
+                                                               class="fas fa-list legend-btn"
+                                                               onclick="openLegend('cerro_cantil')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
-                                                        <i class="fas fa-cog settings-btn"
-                                                           onclick="openSettings('cerro_cantil')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                            </i>
+                                                            <i class="fas fa-cog settings-btn"
+                                                               onclick="openSettings('cerro_cantil')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
+                                                            </i>
+                                                        </div>
+
+
                                                     </div>
-
-
+                                                    <div class="rst__rowToolbar"></div>
                                                 </div>
-                                                <div class="rst__rowToolbar"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li id="santa_maria_node"
-                            style="display: block; max-width: 100%; ">
-                            <div class="rst__nodeContent" style="left: 44px">
-                                <div style="height: 100%">
-                                    <div class="rst__rowWrapper">
-                                        <div class="rst__row" style="opacity: 1" draggable="true">
-                                            <div class="rst__moveHandle"></div>
-                                            <div class="rst__rowContents ignore-elements">
-                                                <div class="rst__rowLabel">
+                            <li id="santa_maria_node"
+                                style="display: block; max-width: 100%; ">
+                                <div class="rst__nodeContent" style="left: 44px">
+                                    <div style="height: 100%">
+                                        <div class="rst__rowWrapper">
+                                            <div class="rst__row" style="opacity: 1" draggable="true">
+                                                <div class="rst__moveHandle"></div>
+                                                <div class="rst__rowContents ignore-elements">
+                                                    <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="Santa Maria Tzeja"
@@ -181,39 +189,40 @@
                                                                              class="form-check-input"
                                                                       />
                                                                       <label for="santa_maria"
-                                                                             class="cblabel">{% autoescape off %}Santa María Tzejá{% endautoescape %}</label>
+                                                                             class="cblabel">{% autoescape off %}Santa
+                                                                          María Tzejá{% endautoescape %}</label>
                                                                       <br/>
                                                                   </span>
-                                                    <div>
-                                                        <i id="legend_santa_maria"
-                                                           class="fas fa-list legend-btn"
-                                                           onclick="openLegend('santa_maria')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                        <div>
+                                                            <i id="legend_santa_maria"
+                                                               class="fas fa-list legend-btn"
+                                                               onclick="openLegend('santa_maria')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
-                                                        <i class="fas fa-cog settings-btn"
-                                                           onclick="openSettings('santa_maria')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                            </i>
+                                                            <i class="fas fa-cog settings-btn"
+                                                               onclick="openSettings('santa_maria')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
+                                                            </i>
+                                                        </div>
                                                     </div>
+                                                    <div class="rst__rowToolbar"></div>
                                                 </div>
-                                                <div class="rst__rowToolbar"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li id="cam_areas_node"
-                            style="display: block; max-width: 100%; ">
-                            <div class="rst__nodeContent" style="left: 44px">
-                                <div style="height: 100%">
-                                    <div class="rst__rowWrapper">
-                                        <div class="rst__row" style="opacity: 1" draggable="true">
-                                            <div class="rst__moveHandle"></div>
-                                            <div class="rst__rowContents ignore-elements">
-                                                <div class="rst__rowLabel">
+                            </li>
+                            <li id="cam_areas_node"
+                                style="display: block; max-width: 100%; ">
+                                <div class="rst__nodeContent" style="left: 44px">
+                                    <div style="height: 100%">
+                                        <div class="rst__rowWrapper">
+                                            <div class="rst__row" style="opacity: 1" draggable="true">
+                                                <div class="rst__moveHandle"></div>
+                                                <div class="rst__rowContents ignore-elements">
+                                                    <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="Áreas Protegidas Centroamérica"
@@ -230,40 +239,40 @@
                                                                              class="cblabel">Áreas Protegidas Centroamérica</label>
                                                                       <br/>
                                                                   </span>
-                                                    <div>
-                                                        <i id="legend_cam_areas "
-                                                           class="fas fa-list legend-btn"
-                                                           onclick="openLegend('cam_areas')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                        <div>
+                                                            <i id="legend_cam_areas "
+                                                               class="fas fa-list legend-btn"
+                                                               onclick="openLegend('cam_areas')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
-                                                        <i class="fas fa-cog settings-btn"
-                                                           onclick="openSettings('cam_areas')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                            </i>
+                                                            <i class="fas fa-cog settings-btn"
+                                                               onclick="openSettings('cam_areas')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
+                                                            </i>
+                                                        </div>
+
+
                                                     </div>
-
-
+                                                    <div class="rst__rowToolbar"></div>
                                                 </div>
-                                                <div class="rst__rowToolbar"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
 
-                        <li id="rivers_node"
-                            style="display: block; max-width: 100%; ">
-                            <div class="rst__nodeContent" style="left: 44px">
-                                <div style="height: 100%">
-                                    <div class="rst__rowWrapper">
-                                        <div class="rst__row" style="opacity: 1">
-                                            <div class="rst__moveHandle"></div>
-                                            <div class="rst__rowContents ignore-elements">
-                                                <div class="rst__rowLabel">
+                            <li id="rivers_node"
+                                style="display: block; max-width: 100%; ">
+                                <div class="rst__nodeContent" style="left: 44px">
+                                    <div style="height: 100%">
+                                        <div class="rst__rowWrapper">
+                                            <div class="rst__row" style="opacity: 1">
+                                                <div class="rst__moveHandle"></div>
+                                                <div class="rst__rowContents ignore-elements">
+                                                    <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="Ríos Santa María Tzejá"
@@ -279,39 +288,39 @@
                                                                              class="cblabel">Ríos Santa María Tzejá</label>
                                                                       <br/>
                                                                   </span>
-                                                    <div>
-                                                        <i id="legend_rivers "
-                                                           class="fas fa-list legend-btn"
-                                                           onclick="openLegend('rivers')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                        <div>
+                                                            <i id="legend_rivers "
+                                                               class="fas fa-list legend-btn"
+                                                               onclick="openLegend('rivers')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
-                                                        <i class="fas fa-cog settings-btn"
-                                                           onclick="openSettings('rivers')"
-                                                           style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                            </i>
+                                                            <i class="fas fa-cog settings-btn"
+                                                               onclick="openSettings('rivers')"
+                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                        </i>
+                                                            </i>
+                                                        </div>
+
+
                                                     </div>
-
-
+                                                    <div class="rst__rowToolbar"></div>
                                                 </div>
-                                                <div class="rst__rowToolbar"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        {% for layer in wms_layers %}
-                            <li id="{{ layer.id }}_node"
-                                style="display: block; max-width: 100%; ">
-                                <div class="rst__nodeContent" style="left: 44px">
-                                    <div style="height: 100%">
-                                        <div class="rst__rowWrapper">
-                                            <div class="rst__row" style="opacity: 1">
-                                                <div class="rst__moveHandle"></div>
-                                                <div class="rst__rowContents ignore-elements">
-                                                    <div class="rst__rowLabel">
+                            </li>
+                            {% for layer in wms_layers %}
+                                <li id="{{ layer.id }}_node"
+                                    style="display: block; max-width: 100%; ">
+                                    <div class="rst__nodeContent" style="left: 44px">
+                                        <div style="height: 100%">
+                                            <div class="rst__rowWrapper">
+                                                <div class="rst__row" style="opacity: 1">
+                                                    <div class="rst__moveHandle"></div>
+                                                    <div class="rst__rowContents ignore-elements">
+                                                        <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="{{ layer.title }}"
@@ -326,60 +335,60 @@
                                                                              class="cblabel">{{ layer.title }}</label>
                                                                       <br/>
                                                                   </span>
-                                                        <div>
-                                                            <i id="legend_{{ layer.id }} "
-                                                               class="fas fa-list legend-btn"
-                                                               onclick="openLegend('{{ layer.id }}')"
-                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                            <div>
+                                                                <i id="legend_{{ layer.id }} "
+                                                                   class="fas fa-list legend-btn"
+                                                                   onclick="openLegend('{{ layer.id }}')"
+                                                                   style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                            </i>
-                                                            <i class="fas fa-cog settings-btn"
-                                                               onclick="openSettings('{{ layer.id }}')"
-                                                               style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
+                                                                </i>
+                                                                <i class="fas fa-cog settings-btn"
+                                                                   onclick="openSettings('{{ layer.id }}')"
+                                                                   style="float: left; margin: 0 0 15px 15px;visibility: hidden;">
 
-                                                            </i>
-                                                            <p class="fire_counter">
-                                                                <span id="{{ layer.id }}_count">0</span>
-                                                                <span>hotspots</span>
-                                                            </p>
+                                                                </i>
+                                                                <p class="fire_counter">
+                                                                    <span id="{{ layer.id }}_count">0</span>
+                                                                    <span>hotspots</span>
+                                                                </p>
+                                                            </div>
+
+
                                                         </div>
-
-
+                                                        <div class="rst__rowToolbar"></div>
                                                     </div>
-                                                    <div class="rst__rowToolbar"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <script>
-                                $(function () {
-                                    window._{{ layer.id }}_countUpdater = function _{{ layer.id }}_countUpdater() {
-                                        if (map) {
-                                            map.on('moveend', function (e) {
+                                </li>
+                                <script>
+                                    $(function () {
+                                        window._{{ layer.id }}_countUpdater = function _{{ layer.id }}_countUpdater() {
+                                            if (map) {
+                                                map.on('moveend', function (e) {
+                                                    getFireCount('{{ layer.wfs_layer_types }}', '{{ layer.id }}_count');
+                                                    get_monthly_fires();
+                                                });
                                                 getFireCount('{{ layer.wfs_layer_types }}', '{{ layer.id }}_count');
-                                                get_monthly_fires();
-                                            });
-                                            getFireCount('{{ layer.wfs_layer_types }}', '{{ layer.id }}_count');
-                                        } else {
-                                            setTimeout(_{{ layer.id }}_countUpdater, 250);
+                                            } else {
+                                                setTimeout(_{{ layer.id }}_countUpdater, 250);
+                                            }
                                         }
-                                    }
-                                    _{{ layer.id }}_countUpdater();
+                                        _{{ layer.id }}_countUpdater();
 
-                                });
-                            </script>
-                        {% endfor %}
-                        <li id="planet_node"
-                            style="display: block; max-width: 100%; ">
-                            <div class="rst__nodeContent" style="left: 44px">
-                                <div style="height: 100%">
-                                    <div class="rst__rowWrapper">
-                                        <div class="rst__row" style="opacity: 1">
-                                            <div class="rst__moveHandle"></div>
-                                            <div class="rst__rowContents ignore-elements opacity-control">
-                                                <div class="rst__rowLabel opacity-control">
+                                    });
+                                </script>
+                            {% endfor %}
+                            <li id="planet_node"
+                                style="display: block; max-width: 100%; ">
+                                <div class="rst__nodeContent" style="left: 44px">
+                                    <div style="height: 100%">
+                                        <div class="rst__rowWrapper">
+                                            <div class="rst__row" style="opacity: 1">
+                                                <div class="rst__moveHandle"></div>
+                                                <div class="rst__rowContents">
+                                                    <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
                                                                           title="Imágenes de Alta Resolución (fuente: Planet - últimos 5 días)"
@@ -394,40 +403,38 @@
                                                                              class="cblabel">Imágenes de Alta Resolución (fuente: Planet - últimos 5 días)</label>
                                                                       <br/>
                                                                   </span>
-                                                    <div class="opacity-control">
-                                                        <input id="opacity_planet"
-                                                               type="range"
-                                                               max="1"
-                                                               min="0"
-                                                               value="1"
-                                                               step="0.01"
-                                                               style="display: block;width:100%;"
-                                                               class="opacity-control"
-                                                        /><label class="ml-1" for="opacity_planet"
-                                                                 id="planet_opacity"></label>
+                                                        <div class="opacity-control">
+                                                            <input id="opacity_planet"
+                                                                   type="range"
+                                                                   max="1"
+                                                                   min="0"
+                                                                   value="1"
+                                                                   step="0.01"
+                                                                   style="display: block;width:100%;"
+                                                                   class="opacity-control"
+                                                            /><label class="ml-1" for="opacity_planet"
+                                                                     id="planet_opacity"></label>
+                                                        </div>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li id="nicfi_node"
-                            style="display: block; max-width: 100%; ">
-                            <div class="rst__nodeContent" style="left: 44px">
-                                <div style="height: 100%">
-                                    <div class="rst__rowWrapper">
-                                        <div class="rst__row" style="opacity: 1">
-                                            <div class="rst__moveHandle"></div>
-                                            <div class="rst__rowContents ignore-elements opacity-control">
-                                                <div class="rst__rowLabel opacity-control">
+                            <li id="nicfi_node"
+                                style="display: block; max-width: 100%; ">
+                                <div class="rst__nodeContent" style="left: 44px">
+                                    <div style="height: 100%">
+                                        <div class="rst__rowWrapper">
+                                            <div class="rst__row" style="opacity: 1">
+                                                <div class="rst__moveHandle"></div>
+                                                <div class="rst__rowContents ignore-elements opacity-control">
+                                                    <div class="rst__rowLabel opacity-control">
                                                                   <span
                                                                           class="rst__rowTitle"
-                                                                          title="Imágenes de Alta Resolución (fuente: Planet - últimos 5 días)"
+                                                                          title="Comparación de mosaicos (fuente: NICFI)"
                                                                           data-toggle="tooltip"
                                                                   >
                                                                       <input type="checkbox"
@@ -436,32 +443,54 @@
                                                                              class="form-check-input"
                                                                       />
                                                                       <label for="nicfi"
-                                                                             class="cblabel">Imágenes de Alta Resolución (fuente: NICFI)</label>
+                                                                             class="cblabel">Comparación de mosaicos (fuente: NICFI)</label>
                                                                       <br/>
                                                                   </span>
-                                                    <div class="opacity-control">
-                                                        <input id="opacity_nicfi"
-                                                               type="range"
-                                                               max="1"
-                                                               min="0"
-                                                               value="1"
-                                                               step="0.01"
-                                                               style="display: block;width:100%;"
-                                                               class="opacity-control"
-                                                        /><label class="ml-1" for="opacity_nicfi"
-                                                                 id="planet_nicfi"></label>
+                                                        <div class="opacity-control">
+                                                            <input id="opacity_nicfi"
+                                                                   type="range"
+                                                                   max="1"
+                                                                   min="0"
+                                                                   value="1"
+                                                                   step="0.01"
+                                                                   style="display: block;width:100%;"
+                                                                   class="opacity-control"
+                                                            /><label class="ml-1" for="opacity_nicfi"
+                                                                     id="planet_nicfi"></label>
+                                                        </div>
+                                                        <div id="mosaic-range">
+                                                            <select name="start_mosaic" id="start_mosaic"
+                                                                    class="mosaic-select form-control"
+                                                                    onchange="updateNICFI(this.value, 'nicfi_layer')"
+                                                            >
+                                                                {% for mosaic in available_nicfi %}
+                                                                    <option value="{{ mosaic }}"
+                                                                            {% if forloop.first %}selected{% endif %}>{{ mosaic }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                            -
+                                                            <select name="end_mosaic" id="end_mosaic"
+                                                                    class="mosaic-select form-control"
+                                                                    onchange="updateNICFI(this.value, 'nicfi_layer2')"
+                                                            >
+                                                                {% for mosaic in available_nicfi %}
+                                                                    <option value="{{ mosaic }}"
+                                                                            {% if forloop.counter == 2 %}selected{% endif %}>
+                                                                        {{ mosaic }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ol></div>
-                    <div class="tab-pane fade" id="weather" role="tabpanel" aria-labelledby="weather-tab" style="margin-top: 10px;">
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="tab-pane fade" id="weather" role="tabpanel" aria-labelledby="weather-tab"
+                         style="margin-top: 10px;">
                         <div class="accordion-body" id="weathertab" aria-labelledby="profile-tab">
                             <div id="wwo-weather-widget-1"></div>
                             <script type='text/javascript'
@@ -469,54 +498,56 @@
                                     async></script>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="basemaps" role="tabpanel" aria-labelledby="basemaps-tab"> <div class="accordion-body" id="basemaps" aria-labelledby="profile-tab">
-                        <div class="text-center">
-                            <div class="map-thumb-full">
-                                <a class="basemap_img" id="osm" href="#"
-                                   onclick="add_basemap(this.id);"><img
-                                        src="{% static 'images/basemaps/osm.png' %}" alt="img1"
-                                        class="img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="map-thumb-full">
-                                <a class="basemap_img" id="topo" href="#"
-                                   onclick="add_basemap(this.id);"><img
-                                        src="{% static 'images/basemaps/topo.png' %}" alt="img1"
-                                        class="img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="map-thumb-full">
-                                <a class="basemap_img" id="gsatellite" href="#"
-                                   onclick="add_basemap(this.id);"><img
-                                        src="{% static 'images/basemaps/gsatellite.png' %}" alt="img1"
-                                        class="img-thumbnail">
-                                </a>
-                            </div>
+                    <div class="tab-pane fade" id="basemaps" role="tabpanel" aria-labelledby="basemaps-tab">
+                        <div class="accordion-body" id="basemaps" aria-labelledby="profile-tab">
+                            <div class="text-center">
+                                <div class="map-thumb-full">
+                                    <a class="basemap_img" id="osm" href="#"
+                                       onclick="add_basemap(this.id);"><img
+                                            src="{% static 'images/basemaps/osm.png' %}" alt="img1"
+                                            class="img-thumbnail">
+                                    </a>
+                                </div>
+                                <div class="map-thumb-full">
+                                    <a class="basemap_img" id="topo" href="#"
+                                       onclick="add_basemap(this.id);"><img
+                                            src="{% static 'images/basemaps/topo.png' %}" alt="img1"
+                                            class="img-thumbnail">
+                                    </a>
+                                </div>
+                                <div class="map-thumb-full">
+                                    <a class="basemap_img" id="gsatellite" href="#"
+                                       onclick="add_basemap(this.id);"><img
+                                            src="{% static 'images/basemaps/gsatellite.png' %}" alt="img1"
+                                            class="img-thumbnail">
+                                    </a>
+                                </div>
 
-                            <div class="map-thumb-full">
-                                <a class="basemap_img" id="satellite" href="#"
-                                   onclick="add_basemap(this.id);"><img
-                                        src="{% static 'images/basemaps/satellite.png' %}" alt="img1"
-                                        class="img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="map-thumb-full">
-                                <a class="basemap_img" id="terrain" href="#"
-                                   onclick="add_basemap(this.id);"><img
-                                        src="{% static 'images/basemaps/terrain.png' %}" alt="img1"
-                                        class="img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="map-thumb-full">
-                                <a class="basemap_img" id="delorme" href="#"
-                                   onclick="add_basemap(this.id);"><img
-                                        src="{% static 'images/basemaps/delorme.png' %}" alt="img1"
-                                        class="img-thumbnail">
-                                </a>
-                            </div>
+                                <div class="map-thumb-full">
+                                    <a class="basemap_img" id="satellite" href="#"
+                                       onclick="add_basemap(this.id);"><img
+                                            src="{% static 'images/basemaps/satellite.png' %}" alt="img1"
+                                            class="img-thumbnail">
+                                    </a>
+                                </div>
+                                <div class="map-thumb-full">
+                                    <a class="basemap_img" id="terrain" href="#"
+                                       onclick="add_basemap(this.id);"><img
+                                            src="{% static 'images/basemaps/terrain.png' %}" alt="img1"
+                                            class="img-thumbnail">
+                                    </a>
+                                </div>
+                                <div class="map-thumb-full">
+                                    <a class="basemap_img" id="delorme" href="#"
+                                       onclick="add_basemap(this.id);"><img
+                                            src="{% static 'images/basemaps/delorme.png' %}" alt="img1"
+                                            class="img-thumbnail">
+                                    </a>
+                                </div>
 
+                            </div>
                         </div>
-                    </div></div>
+                    </div>
                 </div>
 
                 <br>
@@ -536,12 +567,12 @@
     </div>
 
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content" id="modal-content">
-            <span class="close" onclick="closeAttribution()">&times;</span>
-            <p id="modalAttribution"></p>
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" id="modal-content">
+                <span class="close" onclick="closeAttribution()">&times;</span>
+                <p id="modalAttribution"></p>
+            </div>
         </div>
-    </div>
     </div>
 
 {% endblock %}
