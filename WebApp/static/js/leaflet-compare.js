@@ -23,11 +23,13 @@ function cancelMapDrag() {
     mapWasDragEnabled = map.dragging.enabled();
     mapWasTapEnabled = map.tap && map.tap.enabled();
     map.dragging.disable();
-    map.tap && map.tap.disable();
+    if(map.tap){
+        map.tap.disable();
+    }
 }
 
 function uncancelMapDrag(e) {
-    map.getContainer().focus();
+    // map.getContainer().focus();
     if (mapWasDragEnabled) {
         map.dragging.enable();
     }
@@ -87,17 +89,17 @@ L.Control.Compare = L.Control.extend({
             "div",
             "leaflet-sbs",
             // eslint-disable-next-line no-underscore-dangle
-            map._controlContainer,
+            map._controlContainer
         );
         this._divider = L.DomUtil.create(
             "div",
             "leaflet-sbs-divider",
-            this._container,
+            this._container
         );
         this._range = L.DomUtil.create(
             "input",
             "leaflet-sbs-range",
-            this._container,
+            this._container
         );
         this._range.type = "range";
         this._range.min = 0;
@@ -200,44 +202,44 @@ L.Control.Compare = L.Control.extend({
 
         $(".leaflet-sbs-range").on('touchstart', function () {
             cancelMapDrag();
-            comp._updateClip();
         });
         $(".leaflet-sbs-range").on('mousedown', function () {
             cancelMapDrag();
-            comp._updateClip();
         });
 
         $(".leaflet-sbs-range").on('touchend', function () {
-            comp._updateClip();
             uncancelMapDrag();
         });
         $(".leaflet-sbs-range").on('mouseup', function () {
-            comp._updateClip();
             uncancelMapDrag();
         });
     },
 
     _removeEvents() {
-        const range = this._range;
-        const map = this._map;
-        if (range) {
-            off(range, getRangeEvent(range), this._updateClip, this);
-            off(
-                range,
-                L.Browser.touch ? "touchstart" : "mousedown",
-                cancelMapDrag,
-                this,
-            );
-            off(
-                range,
-                L.Browser.touch ? "touchend" : "mouseup",
-                uncancelMapDrag,
-                this,
-            );
-        }
-        if (map) {
-            map.off("layeradd layerremove", this._updateLayers, this);
-            map.off("move", this._updateClip, this);
+        try {
+            const range = this._range;
+            const map = this._map;
+            if (range) {
+                off(range, getRangeEvent(range), this._updateClip, this);
+                off(
+                    range,
+                    L.Browser.touch ? "touchstart" : "mousedown",
+                    cancelMapDrag,
+                    this
+                );
+                off(
+                    range,
+                    L.Browser.touch ? "touchend" : "mouseup",
+                    uncancelMapDrag,
+                    this
+                );
+            }
+            if (map) {
+                map.off("layeradd layerremove", this._updateLayers, this);
+                map.off("move", this._updateClip, this);
+            }
+        }catch(e){
+            alert(e);
         }
     },
 });
