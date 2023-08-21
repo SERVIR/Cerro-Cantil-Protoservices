@@ -148,7 +148,7 @@ L.Control.Compare = L.Control.extend({
         const clipX = nw.x + this.getPosition();
         const dividerX = this.getPosition();
         this._divider.style.left = `${dividerX}px`;
-        this.fire("dividermove", { x: dividerX });
+        this.fire("dividermove", {x: dividerX});
         const clipLeft = `rect(${[nw.y, clipX, se.y, nw.x].join("px,")}px)`;
         const clipRight = `rect(${[nw.y, se.x, se.y, clipX].join("px,")}px)`;
 
@@ -175,22 +175,46 @@ L.Control.Compare = L.Control.extend({
         const comp = this;
         /*const map = this._map;*/
         if (!map || !range) return;
-        map.on("move", comp._updateClip, comp);
+        map.on("move", function () {
+                try {
+                    comp._updateClip();
+                } catch (e) {
+                }
+            }
+        );
         map.on("layeradd", function () {
-            try{comp._updateLayers();}
-            catch(e){}
-        }
+                try {
+                    comp._updateLayers();
+                } catch (e) {
+                }
+            }
         );
 
-        map.on("layerremove", function () { comp._updateLayers(); });
+        map.on("layerremove", function () {
+            comp._updateLayers();
+        });
 
-        $(".leaflet-sbs-range").on("input", function () { comp._updateClip(); });
+        $(".leaflet-sbs-range").on("input", function () {
+            comp._updateClip();
+        });
 
-        $(".leaflet-sbs-range").on('touchstart', function () { cancelMapDrag(), comp._updateClip(); });
-        $(".leaflet-sbs-range").on('mousedown', function () {cancelMapDrag(); comp._updateClip(); });
+        $(".leaflet-sbs-range").on('touchstart', function () {
+            cancelMapDrag();
+            comp._updateClip();
+        });
+        $(".leaflet-sbs-range").on('mousedown', function () {
+            cancelMapDrag();
+            comp._updateClip();
+        });
 
-        $(".leaflet-sbs-range").on('touchend', function () {comp._updateClip(); uncancelMapDrag();  });
-        $(".leaflet-sbs-range").on('mouseup', function () { comp._updateClip(); uncancelMapDrag();  });
+        $(".leaflet-sbs-range").on('touchend', function () {
+            comp._updateClip();
+            uncancelMapDrag();
+        });
+        $(".leaflet-sbs-range").on('mouseup', function () {
+            comp._updateClip();
+            uncancelMapDrag();
+        });
     },
 
     _removeEvents() {
