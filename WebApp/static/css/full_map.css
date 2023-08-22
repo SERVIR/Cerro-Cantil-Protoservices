@@ -155,6 +155,11 @@ span.rst__rowTitle {
     padding-left: calc(var(--bs-gutter-x) * .5);
 }
 
+.form-check-input:checked {
+    background-color: #fcc219;
+    border-color: #fcc219;
+}
+
 #nav_opener:hover {
     background-color: #fdecc2;
 }
