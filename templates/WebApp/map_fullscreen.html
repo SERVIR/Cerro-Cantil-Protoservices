@@ -334,7 +334,7 @@
                                                                              id="wms_{{ layer.id }}"
                                                                              name="wms_{{ layer.id }}"
                                                                              class="form-check-input"
-                                                                             onchange="toggle_layer(this.checked, '{{ layer.id }}_layer')"/>
+                                                                             onchange="toggle_layer(this.checked, '{{ layer.id }}_layer', true)"/>
                                                                       <label for="wms_{{ layer.id }}"
                                                                              class="cblabel">{{ layer.title }}</label>
                                                                       <br/>
@@ -395,7 +395,7 @@
                                                     <div class="rst__rowLabel">
                                                                   <span
                                                                           class="rst__rowTitle"
-                                                                          title="Imágenes de Alta Resolución (fuente: Planet - últimos 5 días)"
+                                                                          title="Imagen más reciente de alta resolución (Fuente: Planet)"
                                                                           data-toggle="tooltip"
                                                                   >
                                                                       <input type="checkbox"
@@ -404,7 +404,7 @@
                                                                              class="form-check-input"
                                                                       />
                                                                       <label for="planet"
-                                                                             class="cblabel">Imágenes de Alta Resolución (fuente: Planet - últimos 5 días)</label>
+                                                                             class="cblabel">Imagen más reciente de alta resolución (Fuente: Planet)</label>
                                                                       <br/>
                                                                   </span>
                                                         <div class="opacity-control">
@@ -561,7 +561,7 @@
 
             </div>
             <div class="footerDrawer" id="footerDrawer">
-                <div class="open">Mostrar Gráfico</div>
+                <div class="open" style="display:none;">Mostrar Gráfico</div>
                 <div id="attribution_icon" onclick="openAttribution()"></div>
                 <div class="content" id="chart_holder"></div>
             </div>
