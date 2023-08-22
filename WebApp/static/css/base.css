@@ -1,6 +1,6 @@
 /* styles for base template page */
 #head-spacer{
-    padding-top:136px;
+    height:136px;
 }
 #wrapper {
     min-height: calc(100vh - 50px);
