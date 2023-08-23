@@ -9,7 +9,7 @@
 }
 
 .sidenav {
-    height: calc(100vh - 186px);
+    height: calc(100% - 186px);
     padding: 0px;
     width: 350px;
     position: fixed;
@@ -84,7 +84,7 @@ span.rst__rowTitle {
 }
 
 .footerDrawer .content {
-    height: 33vh;
+    height: 33svh;
     max-height: 500px;
     background-color: rgba(204, 204, 204, 0.85);
     display: none;
@@ -284,25 +284,13 @@ span.rst__rowTitle {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#layer-control-id-full {
-    margin: 0px;
-    padding: 0px;
-    /*border: 1px solid gray;*/
-    background: none;
-    box-shadow: none;
-    width: 20vh;
-    font-size: small;
-    position: absolute;
-    display: contents;
-}
-
 #location_full {
     display: flow-root;
     padding: 0px;
 }
 
 #map3 {
-    height:calc(100vh - 186px);
+    height:calc(100svh - 186px);
     z-index: 98;
     margin-left: 0;
 
