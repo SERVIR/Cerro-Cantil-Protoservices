@@ -184,17 +184,17 @@ L.Control.Compare = L.Control.extend({
                 }
             }
         );
-        map.on("layeradd", function () {
-                try {
-                    comp._updateLayers();
-                } catch (e) {
-                }
-            }
-        );
-
-        map.on("layerremove", function () {
-            comp._updateLayers();
-        });
+        // map.on("layeradd", function () {
+        //         try {
+        //             comp._updateLayers();
+        //         } catch (e) {
+        //         }
+        //     }
+        // );
+        //
+        // map.on("layerremove", function () {
+        //     comp._updateLayers();
+        // });
 
         $(".leaflet-sbs-range").on("input", function () {
             comp._updateClip();
@@ -218,6 +218,7 @@ L.Control.Compare = L.Control.extend({
     _removeEvents() {
         try {
             const range = this._range;
+            const comp = this;
             const map = this._map;
             if (range) {
                 off(range, getRangeEvent(range), this._updateClip, this);
@@ -235,8 +236,31 @@ L.Control.Compare = L.Control.extend({
                 );
             }
             if (map) {
-                map.off("layeradd layerremove", this._updateLayers, this);
-                map.off("move", this._updateClip, this);
+                // map.off("layeradd", function () {
+                //         try {
+                //             comp._updateLayers();
+                //         } catch (e) {
+                //         }
+                //     }
+                // );
+                // map.off("layerremove", function () {
+                //         try {
+                //             comp._updateLayers();
+                //         } catch (e) {
+                //         }
+                //     }
+                // );
+                // map.off("layeradd layerremove", this._updateLayers, this);
+                map.off("move", function () {
+                        try {
+                            comp._updateClip();
+                        } catch (e) {
+                        }
+                    }
+                );
+
+
+
             }
         }catch(e){
             alert(e);
