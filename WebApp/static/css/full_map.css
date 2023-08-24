@@ -16,7 +16,7 @@
     z-index: 101;
     left: 0;
     background-color: white;
-    overflow-x: hidden;
+    overflow: hidden;
     transition: 0.5s;
 }
 
@@ -294,6 +294,11 @@ span.rst__rowTitle {
     z-index: 98;
     margin-left: 0;
 
+}
+
+#myTabContent{
+    overflow-y: scroll;
+    height: calc(100% - 104px);
 }
 
 .leaflet-top.leaflet-right {
