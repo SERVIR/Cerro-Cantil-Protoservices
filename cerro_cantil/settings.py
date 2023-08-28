@@ -27,7 +27,7 @@ data = json.load(f)
 SECRET_KEY = data['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(data["DEBUG"].lower() == "true")
 
 ALLOWED_HOSTS = data['ALLOWED_HOSTS']
 
@@ -76,7 +76,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
-SITE_ID = 4
+SITE_ID = data['SITE_ID']
 LOGIN_REDIRECT_URL = '/'
 
 # Additional configuration settings
