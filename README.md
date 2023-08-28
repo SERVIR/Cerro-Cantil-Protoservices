@@ -228,12 +228,12 @@ Now you should be able to run cerrostart to run the production application.
 ## License and Distribution
 
 This application is built and maintained by SERVIR under the terms of the MIT License. See
-[LICENSE](https://github.com/SERVIR/AppTemplate2022/blob/master/license) for more information.
+[LICENSE](https://github.com/SERVIR/Cerro-Cantil-Protoservices/blob/main/license) for more information.
 
 ## Privacy & Terms of Use
 
 This applications abides to all of SERVIR's privacy and terms of use as described
-at [https://servirglobal.net/Privacy-Terms-of-Use](https://servirglobal.net/Privacy-Terms-of-Use).
+at [https://ccf.servirglobal.net/privacy/).
 
 ## Disclaimer
 
