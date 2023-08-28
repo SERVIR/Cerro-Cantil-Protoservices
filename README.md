@@ -233,7 +233,7 @@ This application is built and maintained by SERVIR under the terms of the MIT Li
 ## Privacy & Terms of Use
 
 This applications abides to all of SERVIR's privacy and terms of use as described
-at [https://ccf.servirglobal.net/privacy/).
+at [https://ccf.servirglobal.net/privacy/](https://ccf.servirglobal.net/privacy/).
 
 ## Disclaimer
 
