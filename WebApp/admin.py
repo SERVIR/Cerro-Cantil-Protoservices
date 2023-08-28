@@ -6,7 +6,7 @@ from image_cropping import ImageCroppingMixin
 
 # Register the models to the admin site
 
-admin.site.site_header = "SERVIR Template App Administration"
+admin.site.site_header = "CERRO Cantil Protoservices Administration"
 
 
 class MeasurementAdmin(ImportExportModelAdmin, admin.ModelAdmin):
@@ -15,20 +15,6 @@ class MeasurementAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_filter = ('station__station_name',)  # filter by station name
     search_fields = ['station__station_name', ]  # search by station name
     date_hierarchy = 'measurement_date'  # filter by date
-
-
-admin.site.register(Measurement, MeasurementAdmin)  # register the Measurement model
-
-
-class StationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('station_id', 'station_name', 'station_location')  # list of fields to display
-    list_filter = ('station_organization__organization_name',
-                   'station_organization__organization_country')  # filter by organization name and country
-    search_fields = ['station_organization__organization_name', 'station_organization__organization_country',
-                     'station_organization__organization_city']  # search by organization name, country, and city
-
-
-admin.site.register(Station, StationAdmin)  # register the Station model to the admin site
 
 
 class OrganizationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
