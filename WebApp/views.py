@@ -36,33 +36,7 @@ def nicfi_proxy(request):
     # Original URL you want to proxy to
     original_url = request.GET.get("nicfi_url")
 
-    # Construct the modified URL with the API key
-    modified_url = f"{original_url}?api_key={api_key}"
-
-    print(modified_url)
-    # Make a GET request to the modified URL
-    response = requests.get(modified_url, stream=True)
-
-    print("made it back")
-
-    # Create a new HttpResponse with the content and headers from the remote response
-    proxy_response = HttpResponse(
-        content=response.content,
-        status=response.status_code,
-        content_type=response.headers.get('content-type')
-    )
-
-    print("made response")
-
-    # Copy the headers from the remote response to the proxy response
-    safe_headers = ['content-type', 'content-length']
-    for header, value in response.headers.items():
-        if header.lower() in safe_headers:
-            proxy_response[header] = value
-
-    print("added headers")
-
-    return proxy_response
+    return get_tile(original_url, api_key)
 
 
 def planet_proxy(request):
@@ -71,8 +45,12 @@ def planet_proxy(request):
     # Original URL you want to proxy to
     original_url = request.GET.get("planet_url")
 
+    return get_tile(original_url, api_key)
+
+
+def get_tile(url, api_key):
     # Construct the modified URL with the API key
-    modified_url = f"{original_url}?api_key={api_key}"
+    modified_url = f"{url}?api_key={api_key}"
 
     # Make a GET request to the modified URL
     response = requests.get(modified_url, stream=True)

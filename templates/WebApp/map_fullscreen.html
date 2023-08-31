@@ -4,6 +4,7 @@
 
 {% block title %}Cerro Cantil Protoservices - Map{% endblock %}
 {% block script %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Leaflet-->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.min.css"/>
@@ -33,6 +34,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="{% static 'js/highcharts.js' %}"></script>
     <script src="{% static 'js/modules/exporting.js' %}"></script>
     <script src="{% static 'js/modules/export-data.js' %}"></script>
@@ -148,6 +150,7 @@
                                                                              class="cblabel">Cerro Cantil</label>
                                                                       <br/>
                                                                   </span>
+
                                                         <div>
                                                             <i id="legend_cerro_cantil"
                                                                class="fas fa-list legend-btn"
@@ -164,7 +167,7 @@
 
 
                                                     </div>
-                                                    <div class="rst__rowToolbar"></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Cerro Cantil')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +214,7 @@
                                                             </i>
                                                         </div>
                                                     </div>
-                                                    <div class="rst__rowToolbar"></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Santa Maria')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,7 +262,7 @@
 
 
                                                     </div>
-                                                    <div class="rst__rowToolbar"></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Áreas Protegidas Centroamérica')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -308,7 +311,7 @@
 
 
                                                     </div>
-                                                    <div class="rst__rowToolbar"></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Rivers')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,7 +362,7 @@
 
 
                                                         </div>
-                                                        <div class="rst__rowToolbar"></div>
+                                                        <div class="rst__rowToolbar"><i onclick="layer_info('{{ layer.title }}')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -420,6 +423,8 @@
                                                                      id="planet_opacity"></label>
                                                         </div>
                                                     </div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Planet')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -485,6 +490,8 @@
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('NICFI')" class="fas fa-question-circle" aria-hidden="true" style="float: right;"></i></div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -577,6 +584,13 @@
                 <p id="modalAttribution"></p>
             </div>
         </div>
+    </div>
+    <div id="dialog" style="display: none" class="">
+        <p>
+            This is the default dialog which is useful for displaying information.
+            The dialog window can be moved, resized and closed with the
+            &apos;x&apos; icon.
+        </p>
     </div>
 
 {% endblock %}

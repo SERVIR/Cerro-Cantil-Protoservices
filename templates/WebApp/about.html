@@ -11,38 +11,65 @@
 {% endblock %}
 
 {% block content %}
-    <br>
     <!-- Root container for the about page's content -->
-    <div class="container-fluid  bg-gray-300">
+    <div class="container-fluid  bg-gray-300" style="padding-top: 48px; margin-top: 24px;">
         <!-- About -->
         <!-- Update the text inside <p> tags in order to update the about text -->
-        <div class="row">
-            <div class="col-lg-12 mb-4">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">About this application</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-left text-dark">
-                            <p>This is a prototype visualization app for the Cerro Cantil protected area in Guatemala. The purpose of the app is to offer central access to several Earth-observation datasets to monitor the health of the protected area.
+        <div class="row" >
+            <div class="col-lg-8 col-md-6 col-sm-6">
 
-                                Initially, the application incorporates fire monitoring (from FIRMS), both historical and current, and high-resolution imagery made available under research grants to SERVIR.</p>
-{#                            <h5>#}
-{#                                Status: Active @ SCO#}
-{#                            </h5>#}
-                            <h5>
-                                Team Members:
-                            </h5>
-                            <p>
-                                {% for member in team %}
-                                    {{ member.name}}: {{ member.organization.organization_id }}{% if not forloop.last %},{% endif %}
-                                {% endfor %}
-                            </p>
+                        <h6 class="m-0 font-weight-bold text-primary">¿Qué es una imagen satelital o la
+                            información satelital?</h6>
+
+                        <div class="text-left text-dark">
+                            <p>Los satélites tienen sensores que detectan información en la superficie de la
+                                tierra. Como punto de partida, se puede pensar en un satélite como un vehículo espacial
+                                que lleva un tipo de cámara que toma imágenes de la tierra. Pero, a esta cámara la
+                                llamamos “sensor”, y los sensores de diferentes satélites
+                                tienen capacidades distintas. </p>
                         </div>
-                    </div>
+
+                <h6 class="m-0 font-weight-bold text-primary">¿Por qué usar información de satélites?</h6>
+
+                <div class="text-left text-dark">
+                    <p>Las imágenes satelitales pueden ser de mucha utilidad porque nos facilitan otro punto de
+                        vista mucho más amplio. Por ejemplo, podemos usar la información satelital para: </p>
+                    <ul>
+                        <li>
+                            Comparar imágenes satelitales de varios años para evaluar si han habido cambios en
+                            las franjas de un bosque.
+                        </li>
+                        <li>
+                            Observar el crecimiento de áreas agriculturas con el tiempo, también comparando
+                            imágenes satelitales de varios años.
+                        </li>
+                        <li>
+                            Observar un deslave en un área donde sería difícil llegar por carro o a pie.
+
+                        </li>
+                    </ul>
                 </div>
+                <h6 class="m-0 font-weight-bold text-primary">Los satélites no son perfectos</h6>
+
+                <div class="text-left text-dark">
+                    <p>No hay ningún sustituto para las observaciones hechas en campo por una persona.
+                        Mientras los satélites nos pueden ayudar a detectar grandes tendencias de cambios
+                        en la tierra, usamos observaciones en campo para confirmar la información satelital.
+                        Además, varios factores como las condiciones atmosféricas y las nubes pueden tener
+                        impacto en la calidad de la información.</p>
+                </div>
+
+                </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6" style="vertical-align: top;">
+
+                <img src="{% static '/images/nasa_satellites.jpg' %}" alt="Satellites" style="max-width: 100%;"/>
+
             </div>
-        </div>
+
+
+
+
         <!-- Team member listing -->
         <!-- Change the path in src of <img> tag in order to replace a team member's picture -->
         <div class="row" style="display: none;">
@@ -83,25 +110,34 @@
     <!-- Update the text inside <strong> in order to update the disclaimer text -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="card shadow ml-4 mr-4 mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Disclaimer</h6>
-                </div>
-                <div class="card-body">
-                    <div class="text-left text-dark">
-                        SERVIR's standard disclaimer is
-                        <hr>
-                        <strong>SERVIR Program, NASA, USAID and SERVIR partner organizations
-                            make no express or implied warranty of this application as to the
-                            merchantability or fitness for any particular purpose.
-                            Neither the US Government nor its contractors shall be liable for
-                            special, consequential or incidental damages attributed to this application.</strong>
-                        <hr>
-                        Modify it to add other organizations that contributed to the
-                        development of this application as necessary.
-                    </div>
-                </div>
+
+            <h6 class="m-0 font-weight-bold text-primary">Sobre el equipo</h6>
+
+            <div class="text-left text-dark">
+
+                <p>
+
+                    Esta aplicación fue creada por la Oficina de Coordinación Científica (SCO) de SERVIR. El equipo está formado por
+                    {% for member in team %}
+                        {{ member.name}}{% if not forloop.last %}{% if forloop.revcounter0 == 1 %}
+                            y
+                        {% endif %}
+                            {% if not forloop.last and forloop.revcounter0 != 1 %},{% endif %}{% endif %}
+                    {% endfor %}
+                </p>
+                <p>SERVIR's standard disclaimer is</p>
+                <hr>
+                <p><strong>SERVIR Program, NASA, USAID and SERVIR partner organizations
+                    make no express or implied warranty of this application as to the
+                    merchantability or fitness for any particular purpose.
+                    Neither the US Government nor its contractors shall be liable for
+                    special, consequential or incidental damages attributed to this application.</strong></p>
+                <hr>
+                <p> Modify it to add other organizations that contributed to the
+                    development of this application as necessary.</p>
             </div>
+
+
         </div>
     </div>
     <!-- Logos -->
@@ -142,5 +178,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

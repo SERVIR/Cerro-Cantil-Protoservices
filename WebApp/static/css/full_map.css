@@ -176,7 +176,7 @@ span.rst__rowTitle {
 }
 
 .rst__rowLabel{
-    width: 100%;
+    width: calc(100% - 20px);
 }
 
 .fire_counter{
@@ -297,7 +297,7 @@ span.rst__rowTitle {
 }
 
 #myTabContent{
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100% - 104px);
 }
 
@@ -305,7 +305,40 @@ span.rst__rowTitle {
     margin-right: 20px;
 }
 
+.ui-dialog {
+    padding: 0;
+    z-index: 105;
+}
 
+.ui-widget-header {
+    border: unset;
+    background: #162518;
+    color: #fcc219;
+    font-weight: bold;
+}
+
+.ui-widget.ui-widget-content{
+    border:unset;
+}
+
+.ui-dialog-titlebar-close {
+    background-image: url('images/close_x.png');
+            /*url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAm0lEQVR4Ae3VAQaAQBBA0dCBukcIHWSPsgfpiOGHMKKg+QrmAyzr2WVmuKmqqgqYrDsMTOOsJe7owA6sWczMtfYKE+2plwJGYHuJCkzU49RH+RgfZWMElIcRUB5GQOkYAeVjJJSJSQy9qP2PsVECpmcmuo4x1oyIiTyUgFFRAkZACZjPUcDyhEmgJuuFujDRtW9bhDUz3xxVVVUdlCLox3GudKQAAAAASUVORK5CYII=);*/
+    border: none!important;
+    float: right;
+    outline: none;
+    /* margin-top: 5px; */
+    background-size: cover;
+    background-color: unset;
+    border-radius: 5px;
+    width: 22px;
+    height: 22px;
+}
+
+.ui-dialog-titlebar-close:hover {
+    border: none;
+    background-image: url('images/close_x_hover.png');
+}
 
 
 .img-thumbnail {
