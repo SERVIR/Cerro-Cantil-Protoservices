@@ -88,6 +88,11 @@ WantedBy=multi-user.target
 
 ```
 
+In order to have the service start on reboot you must enable it byt running the following in the terminal.
+```shell
+sudo systemctl enable cerro
+```
+
 ## Create nginx site
 Create a file in /etc/nginx/conf.d named cerro_prod.conf
 

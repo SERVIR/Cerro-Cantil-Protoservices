@@ -321,6 +321,15 @@ span.rst__rowTitle {
     border:unset;
 }
 
+.fas.fa-circle-info{
+    cursor: pointer;
+    color:#fcc219;
+}
+
+.fas.fa-circle-info:hover{
+    color:#fdecc2;
+}
+
 .ui-dialog-titlebar-close {
     background-image: url('images/close_x.png');
             /*url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAm0lEQVR4Ae3VAQaAQBBA0dCBukcIHWSPsgfpiOGHMKKg+QrmAyzr2WVmuKmqqgqYrDsMTOOsJe7owA6sWczMtfYKE+2plwJGYHuJCkzU49RH+RgfZWMElIcRUB5GQOkYAeVjJJSJSQy9qP2PsVECpmcmuo4x1oyIiTyUgFFRAkZACZjPUcDyhEmgJuuFujDRtW9bhDUz3xxVVVUdlCLox3GudKQAAAAASUVORK5CYII=);*/
