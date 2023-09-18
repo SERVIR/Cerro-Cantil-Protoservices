@@ -4,7 +4,6 @@ const chirps_full_opacity = $('#chirps_full_opacity');
 const esi_full_opacity = $('#esi_full_opacity');
 let opacity_planet;
 let opacity_nicfi;
-// Helpers to show/hide the popovers when the info button is clicked
 let map;
 let compare;
 let csrftoken;
