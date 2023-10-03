@@ -532,6 +532,15 @@ function fire_chart(compiled_series) {
         text: "puntos de calor históricos"
     };
 
+    chart_obj.caption = {
+        verticalAlign: 'top',
+        useHTML: true,
+        style: {
+            'padding-bottom': '10px'
+        },
+        text: 'Este gráfico muestra todos los puntos de calor detectados empezando en el año 2001 hasta el año actual. El número de puntos de calor detectados depende del nivel de zoom del mapa, porque el gráfico toma en cuenta solamente el área que podemos ver en la pantalla. Cambie el nivel de zoom para ver cómo afecta el número total de puntos de calor durante un mes. ',
+    };
+
     chart_obj.subtitle = {
         text: 'Source: FIRMS'
     };
