@@ -9,12 +9,12 @@ const fireLayersOn = [];
 function toggle_layer(checked, which, isFire) {
     if (checked) {
         map.getPane(which).style.display = "block";
-        if(isFire){
+        if (isFire) {
             fireLayersOn.push(which);
         }
     } else {
         map.getPane(which).style.display = "none";
-        if(isFire){
+        if (isFire) {
             const index = fireLayersOn.indexOf(which);
             if (index !== -1) {
                 // Name exists in the list, remove it
@@ -22,10 +22,14 @@ function toggle_layer(checked, which, isFire) {
             }
         }
     }
-    if(fireLayersOn.length > 0){
+    if (fireLayersOn.length > 0) {
         $("#footerDrawer .open").show();
-    } else{
+        console.log("show");
+    } else {
         $("#footerDrawer .open").hide();
+        if ($('.footerDrawer .content').is(':visible')) {
+            $('.footerDrawer .content').hide();
+        }
     }
 }
 
@@ -52,8 +56,8 @@ $(function () {
     map = L.map('map3', {
         zoomControl: true,
         fullscreenControl: true,
-       maxBounds: [[16.124985029560996, -90.43945312500001], [15.677254358963596, -91.32385253906251]],
-       minZoom: 11,
+        maxBounds: [[16.124985029560996, -90.43945312500001], [15.677254358963596, -91.32385253906251]],
+        minZoom: 11,
         center: [15.851173662653748, -90.9172296524048], zoom: 11
     });
     map.zoomControl.setPosition('topright');
@@ -117,9 +121,9 @@ $(function () {
     rivers.my_id = "rivers";
     rivers.addTo(map);
     map.createPane('planet_layer');
-    const planet_layer = L.tileLayer('/planet_proxy/?planet_url=https://tiles{s}.planet.com/data/v1/layers/'+planet_id+'/{z}/{x}/{y}', {
-        pane:"planet_layer",
-        subdomains: ["0","1","2","3"]
+    const planet_layer = L.tileLayer('/planet_proxy/?planet_url=https://tiles{s}.planet.com/data/v1/layers/' + planet_id + '/{z}/{x}/{y}', {
+        pane: "planet_layer",
+        subdomains: ["0", "1", "2", "3"]
     });
 
     planet_layer.addTo(map);
@@ -133,9 +137,9 @@ $(function () {
 
     //start_mosaic
 
-    const nicfi_layer = L.tileLayer('/nicfi_proxy/?nicfi_url=https://tiles0.planet.com/basemaps/v1/planet-tiles/planet_medres_visual_'+$("#start_mosaic").val()+'_mosaic/gmap/{z}/{x}/{y}.png', {
-        pane:"nicfi_layer",
-        subdomains: ["0","1","2","3"],
+    const nicfi_layer = L.tileLayer('/nicfi_proxy/?nicfi_url=https://tiles0.planet.com/basemaps/v1/planet-tiles/planet_medres_visual_' + $("#start_mosaic").val() + '_mosaic/gmap/{z}/{x}/{y}.png', {
+        pane: "nicfi_layer",
+        subdomains: ["0", "1", "2", "3"],
         attribution: "Planet, NICFI",
         id: "nicfi_layer"
     });
@@ -145,9 +149,9 @@ $(function () {
 
 
     // map.createPane('nicfi_layer2');
-    const nicfi_layer2 = L.tileLayer('/nicfi_proxy/?nicfi_url=https://tiles0.planet.com/basemaps/v1/planet-tiles/planet_medres_visual_'+$("#end_mosaic").val()+'_mosaic/gmap/{z}/{x}/{y}.png', {
-        pane:"nicfi_layer",
-        subdomains: ["0","1","2","3"],
+    const nicfi_layer2 = L.tileLayer('/nicfi_proxy/?nicfi_url=https://tiles0.planet.com/basemaps/v1/planet-tiles/planet_medres_visual_' + $("#end_mosaic").val() + '_mosaic/gmap/{z}/{x}/{y}.png', {
+        pane: "nicfi_layer",
+        subdomains: ["0", "1", "2", "3"],
         attribution: "Planet, NICFI",
         id: "nicfi_layer2"
     });
@@ -157,9 +161,9 @@ $(function () {
     $("#nicfi").change(function () {
         toggle_layer(this.checked, "nicfi_layer");
         // toggle_layer(this.checked, "nicfi_layer2");
-        if(compare && compare._map) {
+        if (compare && compare._map) {
             compare.remove();
-        } else{
+        } else {
             compare = L.control.compare([nicfi_layer], [nicfi_layer2]).addTo(map);
         }
     });
@@ -212,7 +216,7 @@ $(function () {
     const button = document.getElementById("cam_areas");
     button.disabled = false;
     adjustLayerIndex();
-    $('.footerDrawer .open').on('click', function() {
+    $('.footerDrawer .open').on('click', function () {
         var text = $('.footerDrawer .open').text();
         $('.footerDrawer .open').text(
             text == "Mostrar Gráfico" ? "Cerrar Gráfico" : "Mostrar Gráfico");
@@ -222,7 +226,7 @@ $(function () {
         toggleDrawer();
     });
     get_monthly_fires();
-    if(window.innerWidth < 650){
+    if (window.innerWidth < 650) {
         closeNav();
     }
     resetHeight();
@@ -230,15 +234,15 @@ $(function () {
     close_dialog();
 });
 
-function toggleDrawer(){
-    if($('.footerDrawer .content').is(':visible')){
+function toggleDrawer() {
+    if ($('.footerDrawer .content').is(':visible')) {
         $('.footerDrawer .content').hide();
-    } else{
+    } else {
         $('.footerDrawer .content').show();
     }
 }
 
-function updateNICFI(mosaic, which){
+function updateNICFI(mosaic, which) {
     // Assuming you have a Leaflet map named 'map'
 
     var nicfiLayer = null;
@@ -251,7 +255,7 @@ function updateNICFI(mosaic, which){
     if (nicfiLayer) {
         // Step 2: Update URL parameters
         var newUrlParams = "new_parameters_here";  // Replace with your new URL parameters
-        nicfiLayer.setUrl('/nicfi_proxy/?nicfi_url=https://tiles0.planet.com/basemaps/v1/planet-tiles/planet_medres_visual_'+mosaic+'_mosaic/gmap/{z}/{x}/{y}.png');
+        nicfiLayer.setUrl('/nicfi_proxy/?nicfi_url=https://tiles0.planet.com/basemaps/v1/planet-tiles/planet_medres_visual_' + mosaic + '_mosaic/gmap/{z}/{x}/{y}.png');
 
         // Step 3: Reload or refresh the layer
         nicfiLayer.redraw();  // This reloads the layer with the updated URL parameters
@@ -260,7 +264,7 @@ function updateNICFI(mosaic, which){
 
         if (nicfiCheckbox && !nicfiCheckbox.checked) {
             nicfiCheckbox.checked = true;
-            var event = new Event('change', { bubbles: true, cancelable: true });
+            var event = new Event('change', {bubbles: true, cancelable: true});
             nicfiCheckbox.dispatchEvent(event);
         }
     }
@@ -268,12 +272,12 @@ function updateNICFI(mosaic, which){
 }
 
 
-function resetHeight(){
+function resetHeight() {
     // reset the body height to that of the inner browser
-    if(/(iPhone|Android|BlackBerry|Windows Phone)/i.test(navigator.userAgent)) {
+    if (/(iPhone|Android|BlackBerry|Windows Phone)/i.test(navigator.userAgent)) {
         document.body.style.height = (window.innerHeight - 50) + "px";
         if (document.getElementById("wrapper").style.height < window.innerHeight) {
-        document.getElementById("wrapper").style.height = (window.innerHeight - 50) + "px";
+            document.getElementById("wrapper").style.height = (window.innerHeight - 50) + "px";
         }
         const element = document.getElementById('wrapper');
         const rect = element.getBoundingClientRect();
@@ -285,12 +289,12 @@ function resetHeight(){
         const footerRect = footer.getBoundingClientRect();
         const footerOffset = viewportHeight - footerRect.bottom;
 
-        if(footerOffset < 0) {
+        if (footerOffset < 0) {
             $(".footerDrawer").css("bottom", drawerOffset + "px");
         }
 
         const map3 = document.getElementById('map3');
-        if(/(iPhone)/i.test(navigator.userAgent)){
+        if (/(iPhone)/i.test(navigator.userAgent)) {
             $(map3).height("calc(100svh - 186px)");
             $(".footerDrawer").css("bottom", (drawerOffset + 25) + "px");
         } else {
@@ -299,8 +303,10 @@ function resetHeight(){
     }
 
 }
+
 // reset the height whenever the window's resized
 window.addEventListener("resize", resetHeight);
+
 // called to initially set the height.
 
 function sortableLayerSetup() {
@@ -311,7 +317,7 @@ function sortableLayerSetup() {
         animation: 150,
         easing: "cubic-bezier(1, 0, 0, 1)",
         filter: ".opacity-control",
-        preventOnFilter:false,
+        preventOnFilter: false,
         onEnd: function ($item, container, _super) {
             adjustLayerIndex();
         },
@@ -428,9 +434,9 @@ function add_other_legend(response, dataset, base_service_url) {
 
 }
 
-function fireResize(target_width){
-    if($("#mySidenav").width() !== target_width){
-        setTimeout(function(){
+function fireResize(target_width) {
+    if ($("#mySidenav").width() !== target_width) {
+        setTimeout(function () {
             fireResize(target_width);
         }, 250);
     }
@@ -460,7 +466,7 @@ function closeNav() {
     fireResize(0);
 }
 
-function get_local_fires(){
+function get_local_fires() {
     $.ajax({
         type: "GET",
         url: "/firebox/",
@@ -476,7 +482,7 @@ function get_local_fires(){
 var debug_data;
 let compiledData;
 
-function get_monthly_fires(){
+function get_monthly_fires() {
     const bounds = map.getBounds();
     let formData = new FormData();
     formData.append("sw_lng", bounds._southWest.lng);
@@ -498,17 +504,17 @@ function get_monthly_fires(){
         success: function (data) {
             try {
                 // alert("building");
-            debug_data = data;
-            data.forEach((d) => {
-                const darray = [];
-                darray.push(Date.parse(d.month));
-                darray.push(d.total_fires);
-                compiledData.push(darray);
-            });
+                debug_data = data;
+                data.forEach((d) => {
+                    const darray = [];
+                    darray.push(Date.parse(d.month));
+                    darray.push(d.total_fires);
+                    compiledData.push(darray);
+                });
 
                 fire_chart(compiledData);
                 // alert("done");
-            } catch(e){
+            } catch (e) {
                 alert(e);
             }
         },
@@ -604,7 +610,8 @@ function fire_chart(compiled_series) {
         color: "#758055",
         type: "column",
         name: "Hotspots",
-        data:compiled_series.sort((a, b) => a[0] - b[0])}];
+        data: compiled_series.sort((a, b) => a[0] - b[0])
+    }];
 
     chart_obj.tooltip = {
         pointFormat: "Value: {point.y:.2f} Hotspots",
@@ -648,11 +655,11 @@ function getFireCount(typeName, label) {
 
     const bounds = map.getBounds();
     const bbox = bounds.getSouth().toString() + "," + bounds.getWest().toString() + "," + bounds.getNorth().toString() + "," + bounds.getEast().toString();
-    if(typeName.includes(",")){
+    if (typeName.includes(",")) {
         const multiTpyes = typeName.split(",");
         firstType = multiTpyes[0];
         secondType = multiTpyes[1];
-    } else{
+    } else {
         firstType = typeName;
     }
     $.ajax({
@@ -671,11 +678,11 @@ function getFireCount(typeName, label) {
             "bbox": bbox,
         },
         success: function (data) {
-            if(secondType){
+            if (secondType) {
                 $.ajax({
                     type: "GET",
                     url: wfsUrl,
-                    firstCount:data.features.length,
+                    firstCount: data.features.length,
                     data: {
                         "service": "WFS",
                         "version": "2.0.0",
@@ -704,13 +711,13 @@ function getFireCount(typeName, label) {
     });
 }
 
-$('#modal-content').click(function(event) {
+$('#modal-content').click(function (event) {
     console.log("stop it");
     event.stopPropagation();
     return false;
 });
 
-function openAttribution(){
+function openAttribution() {
     $("#modalAttribution").html($(".leaflet-control-attribution.leaflet-control").html());
     // $("#modalAttribution").text(attribution);
     var modal = $("#myModal");
@@ -721,7 +728,7 @@ function openAttribution(){
 }
 
 function closeAttribution() {
-        // $("#myModal").css("display", "none");
+    // $("#myModal").css("display", "none");
     $("#myModal").modal('hide');
 }
 
@@ -747,7 +754,7 @@ function layer_info(which) {
         '    align-items: center;' +
         '}">';
     layer_info += '<div style="width:100%; text-align: left;">';
-    layer_info += foundObject ? foundObject.Description: get_layer_body(which);
+    layer_info += foundObject ? foundObject.Description : get_layer_body(which);
     layer_info += '</div>';
     const dialog = $("#dialog");
     dialog.html(layer_info);
@@ -775,7 +782,7 @@ function layer_info(which) {
     $(".ui-dialog-titlebar-close").css("border", "none");
 }
 
-function get_layer_body(which){
+function get_layer_body(which) {
     return "description about " + which + " will be here";
 }
 
@@ -784,23 +791,23 @@ let info_builder = [{
     id: "cerro_cantil",
     Title: "Cerro Cantil  (Fuente: La comunidad de Santa María Tzejá)",
     Description: "El polígono del Área Natural Cerro Cantil facilitado por la comunidad de Santa María Tzejá"
-},{
+}, {
     id: "santa_maria",
     Title: "Santa María Tzejá (Fuente: La comunidad de Santa María Tzejá)\n",
     Description: "El polígono de los límites de Santa María Tzejá facilitado por la comunidad de Santa María Tzejá"
-},{
+}, {
     id: "cam_areas",
     Title: "Áreas Protegidas Centroamericanas (Fuente: WDPA)\n",
     Description: "La Base de Datos Global de Áreas Protegidas (WDPA en inglés) es la base de datos mundial más comprensiva de áreas marinas y terrestres protegidas. Es un proyecto en conjunto entre el Programa de las Naciones Unidas para el Medio Ambiente (UNEP en inglés) y la Unión Internacional para la Conservación de la Naturaleza (IUCN en inglés), y es gestionado por el Centro de Monitoreo de la Conservación del Ambiente de las Naciones Unidas (UNEP-WCMC en inglés) en colaboración con varios gobiernos, organizaciones no gubernamentales, la academia y el sector industrial. \n"
-},{
+}, {
     id: "rivers",
     Title: "Ríos Santa María Tzejá",
     Description: "Ríos Santa María Tzejá"
-},{
+}, {
     id: "Planet",
     Title: "Imágenes diarias de Planet (Fuente: Planet Labs Inc.)",
     Description: "Planet Labs provee imágenes diarias de aproximadamente 5 metros de resolución. La ventaja de tener acceso a imágenes diarias es la continuidad de información, pero estas imágenes también pueden ser afectadas por la nubosidad."
-},{
+}, {
     id: "NICFI",
     Title: "Mosaicos mensuales Planet NICFI (Fuente: Planet Labs Inc.)",
     Description: "Un mosaico mensual de imágenes es una combinación de las mejores observaciones de todas las imágenes disponibles durante un mes. Estas imágenes han sido corregidas para reducir el impacto de nubes, para facilitar el análisis entre meses. El acceso a estos mosaicos es gracias al financiamiento de la Iniciativa Internacional de Clima y Bosques de Noruega (Norway’s International Climate & Forests Initiative). "
