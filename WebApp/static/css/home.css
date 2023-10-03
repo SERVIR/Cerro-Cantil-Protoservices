@@ -29,8 +29,8 @@
 }
 
 .hero_style {
-    height: 50vh;
-    min-height: 400px;
+    height: calc(50vh - 51px);
+    min-height: 300px;
     width: 100%;
     object-fit: cover;
 }
@@ -45,6 +45,16 @@
 .app-card {
     height: 300px;
     width: 400px;
+}
+
+.card-body a:before {
+    clear: both;
+}
+
+.card-body a {
+    bottom: 20px;
+    right: 20px;
+    position: absolute;
 }
 
 .card_bg {

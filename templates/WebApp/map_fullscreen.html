@@ -4,19 +4,25 @@
 
 {% block title %}Cerro Cantil Protoservices - Map{% endblock %}
 {% block script %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+          integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Leaflet-->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.min.css"/>
-{#    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"#}
-{#          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin=""/>#}
+    {#    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"#}
+    {#          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin=""/>#}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0-beta.1/leaflet.css" integrity="sha512-NTS862YmkhJyv1vfMq8LMX1mvv5ts6t2CWwnIj8c2pr575a4ySHmKFao02m09Y0h/c4hqN7XaEPFdwmrosi8Ww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0-beta.1/leaflet.css"
+          integrity="sha512-NTS862YmkhJyv1vfMq8LMX1mvv5ts6t2CWwnIj8c2pr575a4ySHmKFao02m09Y0h/c4hqN7XaEPFdwmrosi8Ww=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0-beta.1/leaflet.js" integrity="sha512-35Se9CS+xsRdx551wuOxxQrJi/ZpmMn6CKYXALlsLCCH4y24H7YUrhFxPBO72Un8E3fXl8miMlZreP6/Vxr5mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0-beta.1/leaflet.js"
+            integrity="sha512-35Se9CS+xsRdx551wuOxxQrJi/ZpmMn6CKYXALlsLCCH4y24H7YUrhFxPBO72Un8E3fXl8miMlZreP6/Vxr5mQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-{#    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"#}
-{#            integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>#}
+    {#    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"#}
+    {#            integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>#}
     <script src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js"
             integrity="sha512-E0DKVahIg0p1UHR2Kf9NX7x7TUewJb30mxkxEm2qOYTVJObgsAGpEol9F6iK6oefCbkJiA4/i6fnTHzM6H1kEA=="
             crossorigin=""></script>
@@ -68,6 +74,7 @@
 
     <script src="{% static '/js/geosearch.umd.js' %}"></script>
     <script src="{% static '/js/map_utils.js' %}"></script>
+    <script src="{% static '/js/map_fullscreen.js' %}"></script>
     <script>
         let mycookie;
         $(function () {
@@ -82,8 +89,11 @@
                 title: "{{ layer.title }}",
                 url: "{{ layer.url }}",
                 attribution: "{{ layer.attribution }}",
-                layers: "{{ layer.layers }}"
+                layers: "{{ layer.layers }}",
+                info_id: "{{ layer.info_json.id }}"
             });
+
+            info_builder.push({{ layer.info_json|safe }});
         {% endfor %}
         const planet_id = '{{ planet_id }}';
     </script>
@@ -167,7 +177,10 @@
 
 
                                                     </div>
-                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Cerro Cantil')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('cerro_cantil')"
+                                                                                    class="fas fa-solid fa-circle-info"
+                                                                                    aria-hidden="true"
+                                                                                    style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +227,10 @@
                                                             </i>
                                                         </div>
                                                     </div>
-                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Santa Maria')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('santa_maria')"
+                                                                                    class="fas fa-solid fa-circle-info"
+                                                                                    aria-hidden="true"
+                                                                                    style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -262,7 +278,10 @@
 
 
                                                     </div>
-                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Áreas Protegidas Centroamérica')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                    <div class="rst__rowToolbar"><i
+                                                            onclick="layer_info('cam_areas')"
+                                                            class="fas fa-solid fa-circle-info" aria-hidden="true"
+                                                            style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -311,7 +330,10 @@
 
 
                                                     </div>
-                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Rivers')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('rivers')"
+                                                                                    class="fas fa-solid fa-circle-info"
+                                                                                    aria-hidden="true"
+                                                                                    style="float: right;"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -362,7 +384,10 @@
 
 
                                                         </div>
-                                                        <div class="rst__rowToolbar"><i onclick="layer_info('{{ layer.title }}')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                        <div class="rst__rowToolbar"><i
+                                                                onclick="layer_info('{% if not layer.info_json.id %}{{ layer.title }}{% else %}{{ layer.info_json.id }}{% endif %}')"
+                                                                class="fas fa-solid fa-circle-info" aria-hidden="true"
+                                                                style="float: right;"></i></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -423,7 +448,10 @@
                                                                      id="planet_opacity"></label>
                                                         </div>
                                                     </div>
-                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Planet')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('Planet')"
+                                                                                    class="fas fa-solid fa-circle-info"
+                                                                                    aria-hidden="true"
+                                                                                    style="float: right;"></i></div>
 
                                                 </div>
                                             </div>
@@ -490,7 +518,10 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="rst__rowToolbar"><i onclick="layer_info('NICFI')" class="fas fa-solid fa-circle-info" aria-hidden="true" style="float: right;"></i></div>
+                                                    <div class="rst__rowToolbar"><i onclick="layer_info('NICFI')"
+                                                                                    class="fas fa-solid fa-circle-info"
+                                                                                    aria-hidden="true"
+                                                                                    style="float: right;"></i></div>
 
                                                 </div>
                                             </div>
@@ -572,7 +603,6 @@
                 <div id="attribution_icon" onclick="openAttribution()"></div>
                 <div class="content" id="chart_holder"></div>
             </div>
-            <script src="{% static '/js/map_fullscreen.js' %}"></script>
             <link rel="stylesheet" href="{% static 'css/common.css' %}">
         </div>
     </div>

@@ -25,6 +25,10 @@ data = json.load(f)
 def home(request):
     return render(request, 'WebApp/home.html', {})
 
+def how(request):
+    team_members = TeamMember.objects.exclude(active=False).order_by("display_order").all()
+    return render(request, 'WebApp/how.html', {"team": team_members})
+
 
 def login(request):
     return render(request, 'WebApp/login.html', {})

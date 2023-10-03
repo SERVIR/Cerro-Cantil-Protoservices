@@ -5,6 +5,58 @@
 {% block script %}
     <!-- Custom styles-->
 
+    <script>
+        function setCardBodyHeights() {
+            const cardBodies = document.querySelectorAll('.card-body');
+            let maxHeight = 0;
+            cardBodies.forEach((cardBody) => {
+                cardBody.style.height = 'auto';
+            });
+
+            // Find the tallest .card-body element
+            cardBodies.forEach((cardBody) => {
+                const height = cardBody.offsetHeight;
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            // Set the height of all .card-body elements to match the tallest one
+            cardBodies.forEach((cardBody) => {
+                cardBody.style.height = maxHeight + 'px';
+            });
+        }
+
+        function setCardHeight(){
+            const carHeads = document.querySelectorAll('.card-header');
+            let maxHeight = 0;
+            carHeads.forEach((cardhead) => {
+                cardhead.style.height = 'auto';
+            });
+
+            // Find the tallest .card-body element
+            carHeads.forEach((cardhead) => {
+                const height = cardhead.offsetHeight;
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            // Set the height of all .card-body elements to match the tallest one
+            carHeads.forEach((cardhead) => {
+                cardhead.style.height = maxHeight + 'px';
+            });
+        }
+
+        // Call the function on page load
+        window.addEventListener('load', setCardBodyHeights);
+        window.addEventListener('load', setCardHeight);
+
+        // Call the function on window resize
+        window.addEventListener('resize', setCardBodyHeights);
+        window.addEventListener('resize', setCardHeight);
+    </script>
+
     <!-- Custom scripts-->
 {% endblock %}
 
@@ -30,9 +82,13 @@
                         </p>
                         <!-- Tagline under the title on the hero image-->
                         <p id="tagline_class">
-                            ¡Bienvenido a la plataforma geoespacial del Cerro Cantil! Este geoportal permite la visualización de varios tipos de información que provienen de imágenes satelitales.  </p>
+                            ¡Bienvenido a la plataforma geoespacial del Cerro Cantil! Este geoportal permite la
+                            visualización de varios tipos de información que provienen de imágenes satelitales. </p>
                         <p>
-                            <button onclick="window.location ='{% url 'map' %}'" class="btn btn-lg btn-data-info hero-subtitle" style="text-transform: unset;">Get started</button>
+                            <button onclick="window.location ='{% url 'map' %}'"
+                                    class="btn btn-lg btn-data-info hero-subtitle" style="text-transform: unset;">Get
+                                started
+                            </button>
                         </p>
                     </div>
                 </div>
@@ -43,25 +99,42 @@
         <div class="container-fluid">
 
 
-                <!-- Description of the website -->
-                <!-- The description can be updated in the <p> tags below -->
-                <div class="row">`
-                    <div class="col-lg-12 mb-4">
+            <!-- Description of the website -->
+            <!-- The description can be updated in the <p> tags below -->
+            <div class="container">
+                <div class="row">
+                    {#                    <div class="col-lg-12 mb-4">#}
+                    {#                        <br>#}
+                    {#                        <div class="card shadow">#}
+                    {#                            <div class="card-header py-3">#}
+                    {#                                <h6 class="m-0 font-weight-bold text-primary">Description</h6>#}
+                    {#                            </div>#}
+                    {#                            <div class="card-body">#}
+                    {#                                <div class="text-center">#}
+                    {#                                </div>#}
+                    {#                                <p>A more in-depth detailed description of the application. this could be multiple paragraphs#}
+                    {#                                and even include images, links, and graphs as needed.  This is all subject to what y'all want and how you#}
+                    {#                                    want it displayed.  You can add background information, research information, publication information,#}
+                    {#                                    or basically anything you think would be useful to the users of the application.#}
+                    {#                                </p>#}
+                    {#                                <p>This application is created and maintained by the SERVIR Science Coordination#}
+                    {#                                    office.</p>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+
+                    <div class="col-lg-4 mb-4">
                         <br>
                         <div class="card shadow">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Description</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">¿Qué es el Cerro Cantil?</h6>
                             </div>
                             <div class="card-body">
                                 <div class="text-center">
                                 </div>
-                                <p>A more in-depth detailed description of the application. this could be multiple paragraphs
-                                and even include images, links, and graphs as needed.  This is all subject to what y'all want and how you
-                                    want it displayed.  You can add background information, research information, publication information,
-                                    or basically anything you think would be useful to the users of the application.
-                                </p>
-                                <p>This application is created and maintained by the SERVIR Science Coordination
-                                    office.</p>
+                                <p>Aprender sobre la historia de este área natural y la comunidad que la protege.</p>
+                                 <br style="clear: both; height:28px;">
+                                <a href="{% url 'about' %}" title="Sobre el proyecto">Sobre el proyecto</a>
                             </div>
                         </div>
                     </div>
@@ -69,19 +142,14 @@
                         <br>
                         <div class="card shadow">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Placeholder</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">¿Qué es la información satelital? </h6>
                             </div>
                             <div class="card-body">
                                 <div class="text-center">
                                 </div>
-                                <p>This web application shows typical implementations of common user interface
-                                    requirements
-                                    in geospatial information delivery. You can customize this template according to
-                                    your specific application workflow, combining different functions, such as
-                                    displayign
-                                    maps and charts in the same page, or eliminating unnecesary functions.</p>
-                                <p>This template app is created and maintanined by the SERVIR Science Coordination
-                                    office.</p>
+                                <p>Aprender qué tipos de información podemos aprovechar de las imágenes satelitales</p>
+                                 <br style="clear: both; height:28px;">
+                                <a href="{% url 'how' %}" title="Sobre el proyecto">Cómo usar la plataforma</a>
                             </div>
                         </div>
                     </div>
@@ -89,47 +157,23 @@
                         <br>
                         <div class="card shadow">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Placeholder</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Cómo usar esta plataforma</h6>
                             </div>
                             <div class="card-body">
                                 <div class="text-center">
                                 </div>
-                                <p>This web application shows typical implementations of common user interface
-                                    requirements
-                                    in geospatial information delivery. You can customize this template according to
-                                    your specific application workflow, combining different functions, such as
-                                    displayign
-                                    maps and charts in the same page, or eliminating unnecesary functions.</p>
-                                <p>This template app is created and maintanined by the SERVIR Science Coordination
-                                    office.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <br>
-                        <div class="card shadow">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Placeholder</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                </div>
-                                <p>This web application shows typical implementations of common user interface
-                                    requirements
-                                    in geospatial information delivery. You can customize this template according to
-                                    your specific application workflow, combining different functions, such as
-                                    displayign
-                                    maps and charts in the same page, or eliminating unnecesary functions.</p>
-                                <p>This template app is created and maintanined by the SERVIR Science Coordination
-                                    office.</p>
+                                <p>Aprender sobre la información disponible en esta plataforma y para qué sirve</p>
+                                <br style="clear: both; height:28px;">
+                                <a href="{% url 'how' %}" title="Sobre el proyecto">Cómo usar la plataforma</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <br>
         </div>
+
+        <br>
+    </div>
     </div>
     <!-- End of Main Content -->
 

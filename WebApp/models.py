@@ -23,6 +23,10 @@ class WMSLayer(models.Model):
     layers = models.CharField(max_length=200, help_text='Enter layer names from the WMS to display')
     wfs_layer_types = models.CharField(max_length=200, help_text='WFS LayerType(s).  If there are two comma separate',
                                        default="")
+    info_json = models.JSONField("Object for UI info button and popup",
+                                 help_text="JSON Object for UI info button and popup",
+                                 default=dict,
+                                 blank=True)
 
     def __str__(self):
         return self.title

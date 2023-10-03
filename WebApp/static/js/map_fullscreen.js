@@ -1,39 +1,8 @@
-const opacity_esi_full = $('#opacity_esi_full');
-const opacity_chirps_full = $('#opacity_chirps_full');
-const chirps_full_opacity = $('#chirps_full_opacity');
-const esi_full_opacity = $('#esi_full_opacity');
 let opacity_planet;
 let opacity_nicfi;
 let map;
 let compare;
 let csrftoken;
-
-/**
- * Checks to see if the cookie is set
- * @param name
- * @returns {null}
- */
-function getCookie(name) {
-    let cookieValue = null;
-    try {
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        if(cookieValue == null){
-            cookieValue = mycookie;
-        }
-    } catch(e){
-        alert(e);
-    }
-    return cookieValue;
-}
 
 const fireLayersOn = [];
 
@@ -195,8 +164,6 @@ $(function () {
         }
     });
 
-
-
     overlayMaps.rivers = rivers;
     $("#rivers").change(function () {
         toggle_layer(this.checked, "rivers_layer");
@@ -219,7 +186,6 @@ $(function () {
         overlayMaps[client_layers[j].id].addTo(map);
     }
 
-// when the opacity control for 'CHIRPS Layer' is selected, update the opacity
     opacity_planet.on("input", function () {
         map.getPane("planet_layer").style.opacity = $(this).val();
 
@@ -228,11 +194,6 @@ $(function () {
     opacity_nicfi.on("input", function () {
         map.getPane("nicfi_layer").style.opacity = $(this).val();
 
-    });
-// when the opacity control for 'ESI Layer' is selected, update the opacity
-    opacity_esi_full.change(function () {
-        esi.setOpacity($(this).val());
-        esi_full_opacity.text(Math.round($(this).val() * 100) + "%");
     });
 
 
@@ -436,7 +397,7 @@ function remove_legend_fixed_size(val) {
     document.getElementById("legend_" + val).remove();
 }
 
-// Add legend to the map for ESI
+// Add legend to the map
 function add_other_legend(response, dataset, base_service_url) {
     let htmlString = "<table>";
     for (var iCnt = 0; iCnt < response.layers.length; iCnt++) {
@@ -467,15 +428,6 @@ function add_other_legend(response, dataset, base_service_url) {
 
 }
 
-function fixHeadSpacer(){
-    // var headspacer = document.getElementById('head-spacer');
-    // if(headspacer.style.height === '0px'){
-    //     headspacer.style.height = "136px";
-    // } else{
-    //     setTimeout(fixHeadSpacer, 100);
-    // }
-}
-
 function fireResize(target_width){
     if($("#mySidenav").width() !== target_width){
         setTimeout(function(){
@@ -487,12 +439,10 @@ function fireResize(target_width){
 
 // Expand the sidebar when the user clicks the three line button on the top left
 function openNav() {
-    // document.getElementById("mySidenav").style.width = "350px";
     $("#mySidenav").addClass("open");
     $("#nav_opener").hide();
     $(".leaflet-bar-timecontrol").css("margin-left", "370px");
     $('.leaflet-bar-timecontrol').css('display', 'flex');
-
     $('.footerDrawer').css('width', 'calc(100% - 357px)');
 
     // set timeout to check if width has reached 350, then dispatch
@@ -502,7 +452,6 @@ function openNav() {
 
 // Collapse the sidebar when the user clicks close button on top of the sidebar
 function closeNav() {
-    // document.getElementById("mySidenav").style.width = "0";
     $("#mySidenav").removeClass("open");
     $("#nav_opener").show();
     $(".leaflet-bar-timecontrol").css("margin-left", "50px");
@@ -790,12 +739,15 @@ function close_dialog() {
  */
 function layer_info(which) {
     close_dialog();
-    const title = which;
+
+    const foundObject = info_builder.find(obj => obj.id === which);
+
+    const title = foundObject ? foundObject.Title : which;
     let layer_info = '<div style="font-size:unset; width:100%; height:100%; display: flex;' +
         '    align-items: center;' +
         '}">';
     layer_info += '<div style="width:100%; text-align: left;">';
-    layer_info += get_layer_body(which);
+    layer_info += foundObject ? foundObject.Description: get_layer_body(which);
     layer_info += '</div>';
     const dialog = $("#dialog");
     dialog.html(layer_info);
@@ -826,3 +778,30 @@ function layer_info(which) {
 function get_layer_body(which){
     return "description about " + which + " will be here";
 }
+
+
+let info_builder = [{
+    id: "cerro_cantil",
+    Title: "Cerro Cantil  (Fuente: La comunidad de Santa María Tzejá)",
+    Description: "El polígono del Área Natural Cerro Cantil facilitado por la comunidad de Santa María Tzejá"
+},{
+    id: "santa_maria",
+    Title: "Santa María Tzejá (Fuente: La comunidad de Santa María Tzejá)\n",
+    Description: "El polígono de los límites de Santa María Tzejá facilitado por la comunidad de Santa María Tzejá"
+},{
+    id: "cam_areas",
+    Title: "Áreas Protegidas Centroamericanas (Fuente: WDPA)\n",
+    Description: "La Base de Datos Global de Áreas Protegidas (WDPA en inglés) es la base de datos mundial más comprensiva de áreas marinas y terrestres protegidas. Es un proyecto en conjunto entre el Programa de las Naciones Unidas para el Medio Ambiente (UNEP en inglés) y la Unión Internacional para la Conservación de la Naturaleza (IUCN en inglés), y es gestionado por el Centro de Monitoreo de la Conservación del Ambiente de las Naciones Unidas (UNEP-WCMC en inglés) en colaboración con varios gobiernos, organizaciones no gubernamentales, la academia y el sector industrial. \n"
+},{
+    id: "rivers",
+    Title: "Ríos Santa María Tzejá",
+    Description: "Ríos Santa María Tzejá"
+},{
+    id: "Planet",
+    Title: "Imágenes diarias de Planet (Fuente: Planet Labs Inc.)",
+    Description: "Planet Labs provee imágenes diarias de aproximadamente 5 metros de resolución. La ventaja de tener acceso a imágenes diarias es la continuidad de información, pero estas imágenes también pueden ser afectadas por la nubosidad."
+},{
+    id: "NICFI",
+    Title: "Mosaicos mensuales Planet NICFI (Fuente: Planet Labs Inc.)",
+    Description: "Un mosaico mensual de imágenes es una combinación de las mejores observaciones de todas las imágenes disponibles durante un mes. Estas imágenes han sido corregidas para reducir el impacto de nubes, para facilitar el análisis entre meses. El acceso a estos mosaicos es gracias al financiamiento de la Iniciativa Internacional de Clima y Bosques de Noruega (Norway’s International Climate & Forests Initiative). "
+}];

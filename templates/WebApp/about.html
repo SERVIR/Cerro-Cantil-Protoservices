@@ -15,80 +15,79 @@
     <div class="container-fluid  bg-gray-300" style="padding-top: 48px; margin-top: 24px;">
         <!-- About -->
         <!-- Update the text inside <p> tags in order to update the about text -->
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-8 col-md-6 col-sm-6">
 
-                        <h6 class="m-0 font-weight-bold text-primary">¿Qué es una imagen satelital o la
-                            información satelital?</h6>
-
-                        <div class="text-left text-dark">
-                            <p>Los satélites tienen sensores que detectan información en la superficie de la
-                                tierra. Como punto de partida, se puede pensar en un satélite como un vehículo espacial
-                                que lleva un tipo de cámara que toma imágenes de la tierra. Pero, a esta cámara la
-                                llamamos “sensor”, y los sensores de diferentes satélites
-                                tienen capacidades distintas. </p>
-                        </div>
-
-                <h6 class="m-0 font-weight-bold text-primary">¿Por qué usar información de satélites?</h6>
+                <h6 class="m-0 font-weight-bold text-primary">La comunidad de Santa María Tzejá y el
+                    área natural Cerro Cantil:</h6>
 
                 <div class="text-left text-dark">
-                    <p>Las imágenes satelitales pueden ser de mucha utilidad porque nos facilitan otro punto de
-                        vista mucho más amplio. Por ejemplo, podemos usar la información satelital para: </p>
-                    <ul>
-                        <li>
-                            Comparar imágenes satelitales de varios años para evaluar si han habido cambios en
-                            las franjas de un bosque.
-                        </li>
-                        <li>
-                            Observar el crecimiento de áreas agriculturas con el tiempo, también comparando
-                            imágenes satelitales de varios años.
-                        </li>
-                        <li>
-                            Observar un deslave en un área donde sería difícil llegar por carro o a pie.
+                    <p>LDesde diciembre del 2019, la comunidad de Santa María Tzejá firmó un convenio para
+                        la gestión compartida del Área Natural de Importancia para la Conservación de la
+                        Diversidad Biológica de Guatemala denominada “Cerro Cantil” entre el
+                        Consejo Nacional de Áreas Protegidas (CONAP) y el Consejo Comunitario de
+                        Desarrollo de la Aldea Santa María Tzejá del Municipio de Playa Grande, Ixcán,
+                        Departamento de Quiché. El área protegida consiste en una extensión de
+                        aproximadamente 4 caballerías de bosque natural.
+                    </p>
+                    <p>
+                        La comunidad tiene la conciencia de proteger el Cerro Cantil y tenerlo como un refugio
+                        de especies claves para el equilibrio de los ecosistemas, pero también es un área de
+                        gran valor histórico e incluso sentimental ya que fue el área donde nuestras familias
+                        de la comunidad han vivido durante varias décadas. En el 2011, realizamos un inventario
+                        de biodiversidad
+                        <LINK DOCUMENT HERE>
+                        lo cual demostró no solamente una alta diversidad
+                        de especies de plantas y animales, sino que también la presencia de varias especies
+                        clasificadas con estatus de protección o de peligro. Hemos venido trabajando en conjunto
+                        para la protección de esta área con el Consejo de Áreas Protegidas de Guatemala (CONAP)
+                        a partir del año 2015.
 
-                        </li>
-                    </ul>
+                    </p>
+                </div>
+
+                <h6 class="m-0 font-weight-bold text-primary">SERVIR </h6>
+
+                <div class="text-left text-dark">
+                    <p>SERVIR es una iniciativa conjunta entre NASA, USAID, y organizaciones líderes de temas
+                        geoespaciales en Asia, África y Latinoamérica, que forma alianzas con países y
+                        organizaciones para enfrentar los retos del cambio climático, la seguridad alimentaria,
+                        el agua y los desastres relacionados, el uso de la tierra, y la calidad del aire. Utilizando
+                        datos satelitales y la tecnología geoespacial, SERVIR co-desarrolla soluciones innovadoras
+                        por medio de una red de centros (hubs) regionales para mejorar la resiliencia y el manejo
+                        sostenible de recursos en los niveles locales, nacionales y regionales. </p>
+
                 </div>
                 <h6 class="m-0 font-weight-bold text-primary">Los satélites no son perfectos</h6>
 
-                <div class="text-left text-dark">
-                    <p>No hay ningún sustituto para las observaciones hechas en campo por una persona.
-                        Mientras los satélites nos pueden ayudar a detectar grandes tendencias de cambios
-                        en la tierra, usamos observaciones en campo para confirmar la información satelital.
-                        Además, varios factores como las condiciones atmosféricas y las nubes pueden tener
-                        impacto en la calidad de la información.</p>
-                </div>
 
-                </div>
+            </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6" style="vertical-align: top;">
 
-                <img src="{% static '/images/nasa_satellites.jpg' %}" alt="Satellites" style="max-width: 100%;"/>
+                <img src="{% static '/images/cerro_cantil_protect.png' %}" alt="Satellites" style="max-width: 100%;"/>
 
             </div>
 
 
+            <!-- Team member listing -->
+            <!-- Change the path in src of <img> tag in order to replace a team member's picture -->
+            <div class="row" style="display: none;">
+                <div class="col-lg-12 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Team members</h6>
+                        </div>
 
 
-        <!-- Team member listing -->
-        <!-- Change the path in src of <img> tag in order to replace a team member's picture -->
-        <div class="row" style="display: none;">
-            <div class="col-lg-12 mb-4">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Team members</h6>
-                    </div>
-
-
-
-                    <div class="card-body text-center">
-                        {% for member in team %}
-                            <span onclick="open_more_info(this)"
-                            class="p-3 d-inline-block text-decoration-none pointer team-member"
-                            style="background-image: url({{ member.image_thumbnail }});
-                            background-size: cover; background-position: center;"
-                            ><p style="height:135px;"></p>
-                            <p>{{ member.name}}</p>
+                        <div class="card-body text-center">
+                            {% for member in team %}
+                                <span onclick="open_more_info(this)"
+                                      class="p-3 d-inline-block text-decoration-none pointer team-member"
+                                      style="background-image: url({{ member.image_thumbnail }});
+                                              background-size: cover; background-position: center;"
+                                ><p style="height:135px;"></p>
+                            <p>{{ member.name }}</p>
                             <span style="display:none;" class="member_title">
                                     {{ member.bio.title }}
                                     </span>
@@ -97,71 +96,72 @@
                                     </span>
                             <input type="hidden" value="{{ member.image_url }}"/>
                             </span>
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Disclaimer -->
+        <!-- Update the text inside <strong> in order to update the disclaimer text -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h6 class="m-0 font-weight-bold text-primary">Sobre el equipo</h6>
+
+                <div class="text-left text-dark">
+
+                    <p>
+
+                        Esta aplicación fue creada por la Oficina de Coordinación Científica (SCO) de SERVIR
+                        en colaboración con la Comunidad de Santa María Tzejá y con retroalimentación del
+                        Ingeniero Emiliano Panjoj Pérez y Juvencio Chom.
+                        {% for member in team %}
+                            {% if forloop.first %} El equipo está formado por {% endif %}
+                            {{ member.name }}{% if not forloop.last %}{% if forloop.revcounter0 == 1 %}
+                                y
+                            {% endif %}
+                                {% if not forloop.last and forloop.revcounter0 != 1 %},{% endif %}{% endif %}
                         {% endfor %}
+                    </p>
+                    <p>SERVIR's standard disclaimer is</p>
+                    <hr>
+                    <p><strong>SERVIR Program, NASA, USAID and SERVIR partner organizations
+                        make no express or implied warranty of this application as to the
+                        merchantability or fitness for any particular purpose.
+                        Neither the US Government nor its contractors shall be liable for
+                        special, consequential or incidental damages attributed to this application.</strong></p>
+                    <hr>
+
+                </div>
 
 
+            </div>
+        </div>
+        <!-- Logos -->
+        <!-- Update the path inside src of <img> tag in order to update the logo images -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow m-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Logos</h6>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/AMZ_Alliance.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ICRISAT.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/RCMRD.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ICIMOD.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ADPC.jpg' %}"></a>
 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Disclaimer -->
-    <!-- Update the text inside <strong> in order to update the disclaimer text -->
-    <div class="row">
-        <div class="col-lg-12">
-
-            <h6 class="m-0 font-weight-bold text-primary">Sobre el equipo</h6>
-
-            <div class="text-left text-dark">
-
-                <p>
-
-                    Esta aplicación fue creada por la Oficina de Coordinación Científica (SCO) de SERVIR. El equipo está formado por
-                    {% for member in team %}
-                        {{ member.name}}{% if not forloop.last %}{% if forloop.revcounter0 == 1 %}
-                            y
-                        {% endif %}
-                            {% if not forloop.last and forloop.revcounter0 != 1 %},{% endif %}{% endif %}
-                    {% endfor %}
-                </p>
-                <p>SERVIR's standard disclaimer is</p>
-                <hr>
-                <p><strong>SERVIR Program, NASA, USAID and SERVIR partner organizations
-                    make no express or implied warranty of this application as to the
-                    merchantability or fitness for any particular purpose.
-                    Neither the US Government nor its contractors shall be liable for
-                    special, consequential or incidental damages attributed to this application.</strong></p>
-                <hr>
-                <p> Modify it to add other organizations that contributed to the
-                    development of this application as necessary.</p>
-            </div>
 
 
-        </div>
-    </div>
-    <!-- Logos -->
-    <!-- Update the path inside src of <img> tag in order to update the logo images -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card shadow m-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Logos</h6>
-                </div>
-                <div class="card-body text-center">
-                    <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/AMZ_Alliance.jpg' %}"></a>
-                    <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ICRISAT.jpg' %}"></a>
-                    <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/RCMRD.jpg' %}"></a>
-                    <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ICIMOD.jpg' %}"></a>
-                    <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ADPC.jpg' %}"></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <br>
+        <br>
     </div>
     <div class="modal fade" id="teamMemberModal" tabindex="-1" role="dialog" aria-labelledby="teamMemberModalLabel"
          aria-hidden="true">

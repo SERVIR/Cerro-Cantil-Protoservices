@@ -1,0 +1,193 @@
+{% extends "WebApp/app_base.html" %}
+{% load static %}
+{% block title %}Cerro Cantil Protoservices - About{% endblock %}
+{% block script %}
+    <!-- Custom styles-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="{% static '/css/about.css' %}" rel="stylesheet" type="text/css">
+    <!-- Custom scripts-->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Root container for the about page's content -->
+    <div class="container-fluid  bg-gray-300" style="padding-top: 48px; margin-top: 24px;">
+        <!-- About -->
+        <!-- Update the text inside <p> tags in order to update the about text -->
+        <div class="row">
+            <div class="col-lg-8 col-md-6 col-sm-6">
+
+                <h6 class="m-0 font-weight-bold text-primary">¿Qué es una imagen satelital o la
+                    información satelital?</h6>
+
+                <div class="text-left">
+                    <p>Los satélites tienen sensores que detectan información en la superficie de la
+                        tierra. Como punto de partida, se puede pensar en un satélite como un vehículo espacial
+                        que lleva un tipo de cámara que toma imágenes de la tierra. Pero, a esta cámara la
+                        llamamos “sensor”, y los sensores de diferentes satélites
+                        tienen capacidades distintas. </p>
+                </div>
+
+                <h6 class="m-0 font-weight-bold text-primary">¿Por qué usar información de satélites?</h6>
+
+                <div class="text-left">
+                    <p>Las imágenes satelitales pueden ser de mucha utilidad porque nos facilitan otro punto de
+                        vista mucho más amplio. Por ejemplo, podemos usar la información satelital para: </p>
+                    <ul style="color:rgb(128,128,128);">
+                        <li>
+                            Comparar imágenes satelitales de varios años para evaluar si han habido cambios en
+                            las franjas de un bosque.
+                        </li>
+                        <li>
+                            Observar el crecimiento de áreas agriculturas con el tiempo, también comparando
+                            imágenes satelitales de varios años.
+                        </li>
+                        <li>
+                            Observar un deslave en un área donde sería difícil llegar por carro o a pie.
+
+                        </li>
+                    </ul>
+                </div>
+                <h6 class="m-0 font-weight-bold text-primary">Los satélites no son perfectos</h6>
+
+                <div class="text-left ">
+                    <p>No hay ningún sustituto para las observaciones hechas en campo por una persona.
+                        Mientras los satélites nos pueden ayudar a detectar grandes tendencias de cambios
+                        en la tierra, usamos observaciones en campo para confirmar la información satelital.
+                        Además, varios factores como las condiciones atmosféricas y las nubes pueden tener
+                        impacto en la calidad de la información.</p>
+                </div>
+
+                <h6 class="m-0 font-weight-bold text-primary">Los datos de este geoportal:</h6>
+                <br>
+
+                <ul style="color:rgb(128,128,128);">
+                    <li>Cerro Cantil (Fuente: La comunidad de Santa María Tzejá)</li>
+                    <li>El polígono del Área Natural Cerro Cantil facilitado por la comunidad de Santa María Tzejá</li>
+                    <li>Santa María Tzejá (Fuente: La comunidad de Santa María Tzejá)</li>
+                    <li>El polígono de los límites de Santa María Tzejá facilitado por la comunidad de Santa María
+                        Tzejá
+                    </li>
+                    <li>Áreas Protegidas Centroamericanas (Fuente: WDPA)
+                        <p>La Base de Datos Global de Áreas Protegidas (WDPA en inglés) es la base de datos mundial más
+                            comprensiva de áreas marinas y terrestres protegidas. Es un proyecto en conjunto entre el
+                            Programa de las Naciones Unidas para el Medio Ambiente (UNEP en inglés) y la Unión
+                            Internacional para la Conservación de la Naturaleza (IUCN en inglés), y es gestionado por el
+                            Centro de Monitoreo de la Conservación del Ambiente de las Naciones Unidas (UNEP-WCMC en
+                            inglés) en colaboración con varios gobiernos, organizaciones no gubernamentales, la academia
+                            y el sector industrial.
+                        </p>
+                    </li>
+                    <li>
+                        Puntos de calor (Fuente: MODIS y VIIRS)
+                        <p>
+                            Nos indican las ubicaciones donde se detectó una temperatura más alta que la temperatura
+                            esperada para este área, un “punto de calor”. Esta diferencia de temperatura puede ser
+                            debido a un incendio, pero hay que verificar en campo.
+                        </p>
+                    </li>
+                    <li>
+                        Imágenes diarias de Planet (Fuente: Planet Labs Inc.)
+                        <p>Planet Labs provee imágenes diarias de aproximadamente 5 metros de resolución. La ventaja de
+                            tener acceso a imágenes diarias es la continuidad de información, pero estas imágenes
+                            también pueden ser afectadas por la nubosidad.</p>
+                    </li>
+                    <li>
+                        Mosaicos mensuales Planet NICFI (Fuente: Planet Labs Inc.)
+                        <p>Un mosaico mensual de imágenes es una combinación de las mejores observaciones de todas las
+                            imágenes disponibles durante un mes. Estas imágenes han sido corregidas para reducir el
+                            impacto de nubes, para facilitar el análisis entre meses. El acceso a estos mosaicos es
+                            gracias al financiamiento de la Iniciativa Internacional de Clima y Bosques de Noruega
+                            (Norway’s International Climate & Forests Initiative). </p>
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6" style="vertical-align: top;">
+
+                <img src="{% static '/images/nasa_satellites.jpg' %}" alt="Satellites" style="max-width: 100%;"/>
+
+            </div>
+
+
+            <!-- Team member listing -->
+            <!-- Change the path in src of <img> tag in order to replace a team member's picture -->
+            <div class="row" style="display: none;">
+                <div class="col-lg-12 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Team members</h6>
+                        </div>
+
+
+                        <div class="card-body text-center">
+                            {% for member in team %}
+                                <span onclick="open_more_info(this)"
+                                      class="p-3 d-inline-block text-decoration-none pointer team-member"
+                                      style="background-image: url({{ member.image_thumbnail }});
+                                              background-size: cover; background-position: center;"
+                                ><p style="height:135px;"></p>
+                            <p>{{ member.name }}</p>
+                            <span style="display:none;" class="member_title">
+                                    {{ member.bio.title }}
+                                    </span>
+                            <span style="display:none;" class="more_info">
+                                        {{ member.bio.description }}
+                                    </span>
+                            <input type="hidden" value="{{ member.image_url }}"/>
+                            </span>
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Disclaimer -->
+        <!-- Update the text inside <strong> in order to update the disclaimer text -->
+
+        <!-- Logos -->
+        <!-- Update the path inside src of <img> tag in order to update the logo images -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow m-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Logos</h6>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/AMZ_Alliance.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ICRISAT.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/RCMRD.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ICIMOD.jpg' %}"></a>
+                        <a href="" class="p-3"><img class="org-logo" src="{% static 'images/logos/ADPC.jpg' %}"></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+    </div>
+    <div class="modal fade" id="teamMemberModal" tabindex="-1" role="dialog" aria-labelledby="teamMemberModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="teamMemberModalLabel">Team Member Name</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add team member information here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
